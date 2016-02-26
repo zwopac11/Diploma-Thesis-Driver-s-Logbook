@@ -3,17 +3,17 @@
 \section{Hardware}
 \newpage
 \section{Software Description}
-The software of our \gls{rpi2} consists of two threads and a blocking FileObjectQueue. We get the GPS data from the API and upload it via REST in the Database. 
+The software of our \gls{rpi2} consists of two threads and a blocking FileObjectQueue. We get the \gls{gps} data from the \gls{api} and upload it via REST in the Database. 
 \subsection{Functions}
 First of all a logging property file and a gps property file are loaded. The logging property file contains logging information like the saving location and the maximum number of logging files. The gps property file contains the raspberry id, the server URL and the gps module IP.
 \subsection{GPS API}
-The API (Gpsd4java) manages the connection with the GPS daemon, which covers receiving data, parsing this information into an useful format and supplying it to the “API Thread”. The GPS data we use consists of the timestamp, coordinateX, coordinateXError, coordinateY, coordinateYError, acceleration, altitude and altitudeError.
+The API (Gpsd4java) manages the connection with the \gls{gps} daemon, which covers receiving data, parsing this information into an useful format and supplying it to the “API Thread”. The \gls{gps} data we use consists of the timestamp, coordinateX, coordinateXError, coordinateY, coordinateYError, acceleration, altitude and altitudeError.
 \subsection{Tape API}
-We implemented this API, because of the problem with saving data into an offline file. This API provides us a FileObjectQueue where we can put and remove our points and this FileObjectQueue is automatically saved in a file. 
+We implemented this \gls{api}, because of the problem with saving data into an offline file. This \gls{api} provides us a FileObjectQueue where we can put and remove our points and this FileObjectQueue is automatically saved in a file. 
 \subsection{Save Thread}
 The Save thread reads point data from the FileObjectQueue and sends the data to the REST server. When the tracks are written in the database, the Save Thread removes these points from the FileObjectQueue.
 \subsection{API Thread}
-When the GPS API measures GPS data, the API Thread gets it from the API. The API Thread adds the information about the track and loads it into the FileObjectQueue.
+When the GPS API measures \gls{gps} data, the API Thread gets it from the \gls{api}. The API Thread adds the information about the track and loads it into the FileObjectQueue.
 \begin{center}
 \includegraphics[width=1\textwidth]{SoftwareDiagram1}
 \end{center} 
@@ -78,31 +78,30 @@ In which cases does an connection error occur:
 \item internet not working
 \item database not working/running
 \end{itemize}
-
 We decided on saving points, which cannot be uploaded, into a JSON (save.jPoint). This solution proved to be the most fitting idea we thought of. It perfectly handled the described problems, reliably managed points and the saving mechanism worked phenomenal.
 \newline \newline
 The same concept is used when the database is offline or not working properly. 
 
-\subsection{Inaccuracy of the GPS Coordinates}
-After the first tests, where we tried to get GPS signal, we noticed the inaccuracy of the signal. This inaccuracy gets influenced by several factors. Therefore we had to find out how precise our GPS coordinates are and how much of an imprecision (part of the GPS data we get from our module) there is. 
+\subsection{Inaccuracy of the \gls{gps} Coordinates}
+After the first tests, where we tried to get \gls{gps} signal, we noticed the inaccuracy of the signal. This inaccuracy gets influenced by several factors. Therefore we had to find out how precise our \gls{gps} coordinates are and how much of an imprecision (part of the \gls{gps} data we get from our module) there is. 
 \newline \newline
-We evaluated driven tracks and measured how much distance there is between the actual location and the GPS coordinates received. This difference was about 5 metres, so no problem at all. 
+We evaluated driven tracks and measured how much distance there is between the actual location and the \gls{gps} coordinates received. This difference was about 5 metres, so no problem at all. 
 \newline \newline
-Due to the fact that we receive how much of an inaccuracy there is in the GPS data, our partner company can easily extract this information and compensate it in the visualization process. To do that even better, we also saved the deviation and the altitude.
+Due to the fact that we receive how much of an inaccuracy there is in the \gls{gps} data, our partner company can easily extract this information and compensate it in the visualization process. To do that even better, we also saved the deviation and the altitude.
 
 \begin{center}
 %grafiken der gefahrenen strecken --> claudio
 %\includegraphics[width=1\textwidth]{}
 \end{center}
 
-\subsection{No GPS Signal}
-When handling the GPS inaccuracy, we had to take into account that there could be no signal at all. Therefore we had to decide on a solution when receiving this data and how to handle and save it.
+\subsection{No \gls{gps} Signal}
+When handling the \gls{gps} inaccuracy, we had to take into account that there could be no signal at all. Therefore we had to decide on a solution when receiving this data and how to handle and save it.
 \newline \newline
 We tried different solutions, but finally decided on not saving them. It is the most efficient way concerning storage, both offline and online.
 \newline \newline
 What does not saving data when having no signal mean for us:
 \begin{itemize}
-\item when there is no GPS signal, there is often also no internet connection
+\item when there is no \gls{gps} signal, there is often also no internet connection
 \item which leads to offline stored “null” points
 	\begin{itemize}
 	\item not saving these null points is the best solution
