@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{Address}\PYG{p}{(}\PYG{n}{addressID}\PYG{p}{,} \PYG{n}{street}\PYG{p}{,} \PYG{n}{zipcode}\PYG{p}{)}
+\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Blumenweg\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{8430}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{Customer}\PYG{p}{(}\PYG{n}{svnr}\PYG{p}{,} \PYG{n}{firstname}\PYG{p}{,} \PYG{n}{lastname}\PYG{p}{,} \PYG{n}{email}\PYG{p}{,} \PYG{n}{dateofbirth}\PYG{p}{,} \PYG{n}{addressID}\PYG{p}{)}
+\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+m+mi}{4523}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}Karl\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}Huber\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}karl.huber@gmail.com\PYGZsq{}}\PYG{p}{,}
+\PYG{n}{DATE\PYGZus{}FORMAT}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}1970\PYGZhy{}12\PYGZhy{}09\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}\PYGZpc{}Y\PYGZhy{}\PYGZpc{}m\PYGZhy{}\PYGZpc{}d\PYGZsq{}}\PYG{p}{),}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{Vehicle}\PYG{p}{(}\PYG{n}{vehicleID}\PYG{p}{,} \PYG{n}{svnr}\PYG{p}{)}
+\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+m+mi}{832}\PYG{p}{,}\PYG{l+m+mi}{4523}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{Licence}\PYG{p}{(}\PYG{n}{licenceID}\PYG{p}{,} \PYG{n}{svnr}\PYG{p}{,} \PYG{n}{dateofactivation}\PYG{p}{)}
+\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+m+mi}{832495}\PYG{p}{,}\PYG{l+m+mi}{4523}\PYG{p}{,}\PYG{n}{DATE\PYGZus{}FORMAT}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}2016\PYGZhy{}01\PYGZhy{}20\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}\PYGZpc{}Y\PYGZhy{}\PYGZpc{}m\PYGZhy{}\PYGZpc{}d\PYGZsq{}}\PYG{p}{));}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{TrackingHardware}\PYG{p}{(}\PYG{n}{serialNumber}\PYG{p}{,} \PYG{n}{description}\PYG{p}{,} \PYG{n}{licenceID}\PYG{p}{)}
+\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+m+mi}{1234}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}Karlis Raspi\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{832495}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{VehicleTrackingHardware}\PYG{p}{(}\PYG{n}{serialNumber}\PYG{p}{,} \PYG{n}{vehicleID}\PYG{p}{,} \PYG{k}{timestamp}\PYG{p}{)}
+\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+m+mi}{1234}\PYG{p}{,} \PYG{l+m+mi}{832}\PYG{p}{,} \PYG{n}{DATE\PYGZus{}FORMAT}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}2016\PYGZhy{}01\PYGZhy{}24\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}\PYGZpc{}Y\PYGZhy{}\PYGZpc{}m\PYGZhy{}\PYGZpc{}d\PYGZsq{}}\PYG{p}{));}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{Track} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}id\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}serialNumber\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}timestamp\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}018f8ff5\PYGZhy{}395b\PYGZhy{}42d2\PYGZhy{}b2f6\PYGZhy{}5c976292cd5e\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{1234}\PYG{p}{,} \PYG{l+m+mi}{1455535245172}\PYG{p}{);}
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{n}{Point} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}id\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}timestamp\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}track\PYGZus{}serialNumber\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}track\PYGZus{}id\PYGZsq{}}\PYG{p}{,}
+\PYG{l+s+s1}{\PYGZsq{}coordinateY\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}coordinateYError\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}coordinateX\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}coordinateXError\PYGZsq{}}\PYG{p}{,}
+\PYG{l+s+s1}{\PYGZsq{}acceleration\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}altitude\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}altitudeError\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}distance\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{VALUES}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}007dae03\PYGZhy{}c915\PYGZhy{}4aae\PYGZhy{}baf9\PYGZhy{}2b7c42a41e43\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{1455535245172}\PYG{p}{,} \PYG{l+m+mi}{1234}\PYG{p}{,}
+\PYG{l+s+s1}{\PYGZsq{}1f114f58\PYGZhy{}fd0c\PYGZhy{}4da6\PYGZhy{}a1b6\PYGZhy{}571ae9e79748\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{46}\PYG{p}{.}\PYG{l+m+mi}{78029}\PYG{p}{,} \PYG{l+m+mi}{14}\PYG{p}{.}\PYG{l+m+mi}{815}\PYG{p}{,} \PYG{l+m+mi}{15}\PYG{p}{.}\PYG{l+m+mi}{54794}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{.}\PYG{l+m+mi}{697}\PYG{p}{,}
+\PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{103}\PYG{p}{,} \PYG{l+m+mi}{277}\PYG{p}{.}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{18}\PYG{p}{.}\PYG{l+m+mi}{17}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}dedc843e\PYGZhy{}e29b\PYGZhy{}4a0d\PYGZhy{}b32d\PYGZhy{}20cb718088ea\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{1455535282394}\PYG{p}{,} \PYG{l+m+mi}{1234}\PYG{p}{,}
+\PYG{l+s+s1}{\PYGZsq{}1f114f58\PYGZhy{}fd0c\PYGZhy{}4da6\PYGZhy{}a1b6\PYGZhy{}571ae9e79748\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{46}\PYG{p}{.}\PYG{l+m+mi}{780401667}\PYG{p}{,} \PYG{l+m+mi}{14}\PYG{p}{.}\PYG{l+m+mi}{815}\PYG{p}{,} \PYG{l+m+mi}{15}\PYG{p}{.}\PYG{l+m+mi}{547526667}\PYG{p}{,}
+\PYG{l+m+mi}{10}\PYG{p}{.}\PYG{l+m+mi}{697}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{.}\PYG{l+m+mi}{562}\PYG{p}{,} \PYG{l+m+mi}{279}\PYG{p}{,} \PYG{l+m+mi}{16}\PYG{p}{.}\PYG{l+m+mi}{56}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{);}
+\end{Verbatim}

@@ -1,0 +1,66 @@
+\documentclass[a4paper,final]{scrreprt}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{bibliography/main.bib}
+
+%Urls in Bibliographie Zeilenbrechbar machen
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100} 
+\setcounter{biburllcpenalty}{100}
+
+%fixed float@addtolists detected(scrreprt) - KOMA-Script Verbesserungen
+\usepackage{scrhack}
+
+%damit biber und glossaries zusammen funktioniert
+\usepackage{csquotes}
+
+%für code highlighting
+\usepackage{minted}
+
+\usepackage{graphicx}
+
+
+
+
+\usepackage[bookmarksnumbered=true 
+%Kapitel und Abschnittsnummern bei pdf Lesezeichen
+]{hyperref}
+
+\usepackage[toc]{glossaries}
+\makeglossaries
+
+\title{driver's logbook}
+\author{Helena Adam, Claudio Knapp, Laura Rössl, Paul Zwölfer}
+\date{\today}
+
+\include{chapters/glossary}
+
+\begin{document}
+
+\include{chapters/headerpage}
+\include{chapters/abstract}
+\include{chapters/acknowledgements}
+\include{chapters/projectmembers}
+\include{chapters/statutorydeclaration}
+\include{chapters/tableofcontents}
+\include{chapters/forewordemployer}
+\include{chapters/introduction}
+\include{chapters/softwarerequirements}
+\include{chapters/competitoranalysis}
+\include{chapters/prototype}
+\include{chapters/database}
+\include{chapters/wireframing}
+\include{chapters/optionaluses}
+\include{chapters/usermanual}
+\include{chapters/futurework}
+\include{chapters/toolstechnologies}
+
+\printglossaries
+
+\nocite{*}
+\printbibliography
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\end{document}

@@ -1,0 +1,81 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{Address}\PYG{p}{(}
+\PYG{n}{addressID} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{n}{AUTO\PYGZus{}INCREMENT} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+\PYG{n}{street} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{30}\PYG{p}{),}
+\PYG{n}{zipcode} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)}
+\PYG{p}{);}
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{Customer}\PYG{p}{(}
+\PYG{n}{svnr} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+\PYG{n}{firstname} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{30}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{lastname} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{30}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{email} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{dateofbirth} \PYG{n+nb}{DATE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{addressID} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{),}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}Customer}\PYG{p}{(}\PYG{n}{addressID}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{Address}\PYG{p}{(}\PYG{n}{addressID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{Vehicle}\PYG{p}{(}
+\PYG{n}{vehicleID} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{n}{AUTO\PYGZus{}INCREMENT} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+\PYG{n}{svnr} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{),}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}Vehicle}\PYG{p}{(}\PYG{n}{svnr}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{Customer}\PYG{p}{(}\PYG{n}{svnr}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{Licence}\PYG{p}{(}
+\PYG{n}{licenceID} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{n}{AUTO\PYGZus{}INCREMENT} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+\PYG{n}{svnr} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{),}
+\PYG{n}{dateofactivation} \PYG{n+nb}{DATE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}account} \PYG{p}{(}\PYG{n}{accountID}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{AdministrationAccount}\PYG{p}{(}\PYG{n}{accountID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{TrackingHardware}\PYG{p}{(}
+\PYG{n}{serialNumber} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{n}{AUTO\PYGZus{}INCREMENT} \PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{,}
+\PYG{n}{svnr} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{),}
+\PYG{n}{description} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{),}
+\PYG{n}{licenceID} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{),}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}trackHardw}\PYG{p}{(}\PYG{n}{svnr}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{Customer}\PYG{p}{(}\PYG{n}{svnr}\PYG{p}{),}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}licence}\PYG{p}{(}\PYG{n}{licenceID}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{Licence}\PYG{p}{(}\PYG{n}{licenceID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{VehicleTrackingHardware}\PYG{p}{(}
+\PYG{n}{serialNumber} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{),}
+\PYG{n}{vehicleID} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{),}
+\PYG{k}{timestamp} \PYG{n+nb}{DATE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{k}{PRIMARY} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{serialNumber}\PYG{p}{,} \PYG{n}{vehicleID}\PYG{p}{),}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}vth\PYGZus{}serialNumber}\PYG{p}{(}\PYG{n}{serialNumber}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{TrackingHardware}\PYG{p}{(}\PYG{n}{serialNumber}\PYG{p}{),}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}vth\PYGZus{}vehicleID}\PYG{p}{(}\PYG{n}{vehicleID}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{Vehicle}\PYG{p}{(}\PYG{n}{vehicleID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{Track}\PYG{p}{(}
+\PYG{n}{id} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{),}
+\PYG{n}{serialNumber} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{),}
+\PYG{k}{timestamp} \PYG{n+nb}{BIGINT} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{(}\PYG{n}{id}\PYG{p}{,} \PYG{n}{serialNumber}\PYG{p}{),}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}track\PYGZus{}serial}\PYG{p}{(}\PYG{n}{serialNumber}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{TrackingHardware}\PYG{p}{(}\PYG{n}{serialNumber}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{Point}\PYG{p}{(}
+\PYG{n}{id} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{),}
+\PYG{k}{timestamp} \PYG{n+nb}{BIGINT} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{track\PYGZus{}serialNumber} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{),}
+\PYG{n}{track\PYGZus{}id} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{),}
+\PYG{n}{coordinateY} \PYG{n}{DOUBLE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{coordinateYError} \PYG{n}{DOUBLE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{coordinateX} \PYG{n}{DOUBLE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{coordinateXError} \PYG{n}{DOUBLE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{acceleration} \PYG{n}{DOUBLE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{altitude} \PYG{n}{DOUBLE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{altitudeError} \PYG{n}{DOUBLE} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+\PYG{n}{distance} \PYG{n}{DOUBLE}\PYG{p}{,}
+\PYG{k}{PRIMARY} \PYG{k}{KEY}\PYG{p}{(}\PYG{n}{id}\PYG{p}{,} \PYG{k}{timestamp}\PYG{p}{,} \PYG{n}{track\PYGZus{}serialNumber}\PYG{p}{,}\PYG{n}{track\PYGZus{}id}\PYG{p}{),}
+\PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{n}{fk\PYGZus{}point\PYGZus{}track}\PYG{p}{(}\PYG{n}{track\PYGZus{}serialNumber}\PYG{p}{,} \PYG{n}{track\PYGZus{}id}\PYG{p}{)}
+\PYG{k}{REFERENCES} \PYG{n}{Track}\PYG{p}{(}\PYG{n}{serialNumber}\PYG{p}{,} \PYG{n}{id}\PYG{p}{)}
+\PYG{p}{);}
+\end{Verbatim}
