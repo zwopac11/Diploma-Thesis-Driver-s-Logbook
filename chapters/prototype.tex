@@ -1,4 +1,4 @@
-\setcounter{chapter}{0}
+
 \chapter{Prototype}
 \section{Hardware}
 \newpage
@@ -15,12 +15,12 @@ The Save thread reads point data from the FileObjectQueue and sends the data to 
 \subsection{API Thread}
 When the GPS API measures GPS data, the API Thread gets it from the API. The API Thread adds the information about the track and loads it into the FileObjectQueue.
 \begin{center}
-\includegraphics[width=1\textwidth]{SoftwareDiagram1}
+\includegraphics[width=1\textwidth]{bilder/SoftwareDiagram1}
 \end{center} 
 \subsection{PHP (REST)}
 This part of our software is responsible for the upload into the database. The REST server gets the data formatted as JSON.
 \begin{center}
-\includegraphics[width=1\textwidth]{SoftwareDiagram2}
+\includegraphics[width=1\textwidth]{bilder/SoftwareDiagram2}
 \end{center} 
 \section{Code Structure}
 \subsection{Classes}
@@ -59,7 +59,7 @@ Reads the properties for the program from a file and sets these values on the sp
 This class is a converter class that has implemented a FileObjectQueue Converter. In the method from, the bytes from the file are converted, so that they can be saved on the FileObjectQueue. In the toStream method, it is the other way round, so the FileObjectQueue is saved on a file.
 \subsection{Class Diagram}
 \begin{center}
-\includegraphics[width=1\textwidth]{GPS_REST_UML_Diagram}
+\includegraphics[width=1\textwidth]{bilder/GPS_REST_UML_Diagram}
 \end{center}
 \section{Problems}
 \subsection{Uploading into Database}
