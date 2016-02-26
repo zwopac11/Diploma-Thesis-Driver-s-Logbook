@@ -2,5 +2,12 @@
 \begin{theglossary}\glossaryheader
 \glsgroupheading{I}\relax \glsresetentrylist %
 \glossentry{it}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{9}}}%
+		\setentrycounter[]{page}\glsnumberformat{9}}}\glsgroupskip
+\glsgroupheading{R}\relax \glsresetentrylist %
+\glossentry{rpi2}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{2}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{10\delimN 11}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{36}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{44}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{55\delimR 57}}}%
 \end{theglossary}\glossarypostamble
