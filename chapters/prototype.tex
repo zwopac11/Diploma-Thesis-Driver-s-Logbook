@@ -3,22 +3,22 @@
 \section{Hardware}
 \newpage
 \section{Software Description}
-The software of our \gls{rpi2} consists of two threads and a blocking FileObjectQueue. We get the \gls{gps} data from the \gls{api} and upload it via REST in the Database. 
+The software of our \gls{rpi2} consists of two threads and a blocking FileObjectQueue. We get the \gls{gps} data from the \gls{api} and upload it via \gls{rest} in the Database. 
 \subsection{Functions}
-First of all a logging property file and a gps property file are loaded. The logging property file contains logging information like the saving location and the maximum number of logging files. The gps property file contains the raspberry id, the server URL and the gps module IP.
+First of all a logging property file and a gps property file are loaded. The logging property file contains logging information like the saving location and the maximum number of logging files. The gps property file contains the raspberry id, the server \gls{url} and the gps module \gls{ip}.
 \subsection{GPS API}
-The API (Gpsd4java) manages the connection with the \gls{gps} daemon, which covers receiving data, parsing this information into an useful format and supplying it to the “API Thread”. The \gls{gps} data we use consists of the timestamp, coordinateX, coordinateXError, coordinateY, coordinateYError, acceleration, altitude and altitudeError.
+The \gls{api} (Gpsd4java) manages the connection with the \gls{gps} daemon, which covers receiving data, parsing this information into an useful format and supplying it to the “API Thread”. The \gls{gps} data we use consists of the timestamp, coordinateX, coordinateXError, coordinateY, coordinateYError, acceleration, altitude and altitudeError.
 \subsection{Tape API}
 We implemented this \gls{api}, because of the problem with saving data into an offline file. This \gls{api} provides us a FileObjectQueue where we can put and remove our points and this FileObjectQueue is automatically saved in a file. 
 \subsection{Save Thread}
-The Save thread reads point data from the FileObjectQueue and sends the data to the REST server. When the tracks are written in the database, the Save Thread removes these points from the FileObjectQueue.
+The Save thread reads point data from the FileObjectQueue and sends the data to the \gls{rest} server. When the tracks are written in the database, the Save Thread removes these points from the FileObjectQueue.
 \subsection{API Thread}
 When the GPS API measures \gls{gps} data, the API Thread gets it from the \gls{api}. The API Thread adds the information about the track and loads it into the FileObjectQueue.
 \begin{center}
 \includegraphics[width=1\textwidth]{SoftwareDiagram1}
 \end{center} 
-\subsection{PHP (REST)}
-This part of our software is responsible for the upload into the database. The REST server gets the data formatted as JSON.
+\subsection{PHP (\gls{rest})}
+This part of our software is responsible for the upload into the database. The \gls{rest} server gets the data formatted as \gls{json}.
 \begin{center}
 \includegraphics[width=1\textwidth]{SoftwareDiagram2}
 \end{center} 
@@ -34,19 +34,19 @@ In the startGpsdClient method, the GPS API is initialized and the validate metho
 In this class the FileObjectQueue is created and initialized by the save.jPoint file and the GsonConverter.java class. 
 Then a new track is created and at last the SaveDataThread object is initialized and started.
 \paragraph{Validate}
-Checks if the data from the GPS API is a Number if not it will be set to 0 except the latitude and the longitude. If they are NaN it will do nothing. 
+Checks if the data from the GPS API is a Number if not it will be set to 0 except the latitude and the longitude. If they are \gls{nan} it will do nothing. 
 Then it adds the data from the GPS API to the FileObjectQueue.
 \paragraph{ProcessData}
 This method peeks max 50 and min 15 points from the FileObjectQueue and puts them into a JContainer. Then it sends these points to the DataManager.java class to upload them via the uploadContainer method.
 \subsubsection{SaveDataThread.java}
-This is an intern Class in the BL class which extends Thread.
+This is an intern Class in the \gls{bl} class which extends Thread.
 \paragraph{Run}
 This override method calls the ProcessData method and then waits 1 second.
 \subsubsection{Data Manager.java}
 \paragraph{Constructor}
-Gets the server URL and puts it on the urlString variable.
+Gets the server \gls{url} and puts it on the urlString variable.
 \paragraph{UploadContainer}
-Uploads the JContainer it got, to the Server via Rest 
+Uploads the JContainer it got, to the Server via \gls{rest} 
 \subsubsection{JContainer.java}
 This is a beans class that contains attributes, getter and setter methods for the respective attribute and a toString method of the JContainer.
 \subsubsection{JPoint.java}
@@ -63,7 +63,7 @@ This class is a converter class that has implemented a FileObjectQueue Converter
 \end{center}
 \section{Problems}
 \subsection{Uploading into Database}
-When we started with this project, we uploaded tracked data directly into the database over a standard java database connection. During our work on this project, we learned the technology hibernate in school so we reconstructed our program and used hibernate. Later our employer told us, that we should use REST to upload data for a higher security level and fewer connections to the database and therefore less overhead. We wrote the REST php script on our own. 
+When we started with this project, we uploaded tracked data directly into the database over a standard java database connection. During our work on this project, we learned the technology hibernate in school so we reconstructed our program and used hibernate. Later our employer told us, that we should use \gls{rest} to upload data for a higher security level and fewer connections to the database and therefore less overhead. We wrote the \gls{rest} \gls{php} script on our own. 
 \subsection{Offline Saving}
 When the engine stopped while saving data offline, we had a loss of points, because the whole save file we used was overwritten. So we created a copy of this file, removed the data which was already in the database and deleted the original file. Then we renamed the copy to the original file name. Nevertheless, there was still a problem. On the one hand, it was possible that no data was lost, but on the other hand everything could be lost if the power was cut off between deleting the original file and renaming the copy. This is the reason why we use Tape API now. 
 \section{Functional Testing}
@@ -71,14 +71,14 @@ To ensure functionality of the hardware prototype and the software, we had to do
 \subsection{Database Connection Error}
 While developing our software, the error handling when loosing database connection was a very important issue. We had to think about different solutions for different code structure because we changed the database connection type. 
 \newline \newline
-We decided on the connection type which is called REST. When using the connection which relies on a working connection, there had to be a backup plan if exactly this connection is not working anymore.
+We decided on the connection type which is called \gls{rest}. When using the connection which relies on a working connection, there had to be a backup plan if exactly this connection is not working anymore.
 \newline \newline
 In which cases does an connection error occur:
 \begin{itemize}
 \item internet not working
 \item database not working/running
 \end{itemize}
-We decided on saving points, which cannot be uploaded, into a JSON (save.jPoint). This solution proved to be the most fitting idea we thought of. It perfectly handled the described problems, reliably managed points and the saving mechanism worked phenomenal.
+We decided on saving points, which cannot be uploaded, into a \gls{json} (save.jPoint). This solution proved to be the most fitting idea we thought of. It perfectly handled the described problems, reliably managed points and the saving mechanism worked phenomenal.
 \newline \newline
 The same concept is used when the database is offline or not working properly. 
 
