@@ -19,7 +19,13 @@
 \glossentry{rpi2}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{2}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{10\delimN 11}\delimN 
+<<<<<<< HEAD
 		\setentrycounter[]{page}\glsnumberformat{35}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{43}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{54\delimR 56}}}%
+=======
+		\setentrycounter[]{page}\glsnumberformat{36}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{44}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{55\delimR 57}}}%
+>>>>>>> 57afdff122d0b32036f2f643e99112a82b441e76
 \end{theglossary}\glossarypostamble
