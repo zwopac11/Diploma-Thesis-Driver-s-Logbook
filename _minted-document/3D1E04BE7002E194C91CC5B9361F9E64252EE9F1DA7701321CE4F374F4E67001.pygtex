@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}Spawn a getty on Raspberry Pi serial line}
+\PYG{n}{T0}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{n}{respawn}\PYG{p}{:}\PYG{o}{/}\PYG{n}{sbin}\PYG{o}{/}\PYG{n}{getty} \PYG{o}{\PYGZhy{}}\PYG{n}{L} \PYG{n}{ttyAMA0} \PYG{l+m+mi}{115200} \PYG{n}{vt100}
+\end{Verbatim}

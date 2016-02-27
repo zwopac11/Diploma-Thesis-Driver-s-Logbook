@@ -1,6 +1,52 @@
 
 \chapter{Prototype}
-\section{Hardware}
+\section{PPi2 Hardware}
+\subsection{GPS Module}
+    
+The GPS module had to be soldered to the pins. At the beginning we did not want to do that, but without doing that the module did not really connect to the pins so we had to do it.\newline
+\includegraphics[width=0.48\textwidth]{bilder/GPS}
+\subsection{GPS Antenna}
+We only used the GPS antenna for testing. Our problem was that it took really long to get a GPS signal every time we changed locations. With the antenna it worked much faster. In the final product there will not be a antenna needed. \newline 
+\includegraphics[width=0.48\textwidth]{bilder/Antenna}
+\subsection{UMTS Stick}
+The UMTS Stick is needed for transmitting the data to the database.\newline
+\includegraphics[width=0.48\textwidth]{bilder/Medion_3}
+\subsection{USV}
+When the car is switched off the power of the RPi2 is cut. When the RPi2 gets power again, it has to do a system check and repair all files. With the USV this won’t happen, because the USV will shut down the RPi2.\newline
+\includegraphics[width=0.48\textwidth]{bilder/USV}
+\newpage
+\subsection{OS}
+\subsubsection{Raspbian Wheezy}
+When we started our diploma-thesis the most common operation system was and is Raspbian Wheezy. At the beginning we downloaded the image and wrote the .img file on the microSD Card. To start Raspbian Wheezy you always have to connect it to a screen. There you have to configure things like the keyboard layout. You can also do that later with the sudo raspi-config command. After that you have to reboot the RPi2.
+Since we wanted to have a remote connection, we installed a Tight VNC Server on the RPi2. For this we used the the sudo apt-get install tightvncserver. So, to connect to the RPi2 via a Tight VNC Client we had to start the server with the tightvncserver command. Then the Server started on the Port 5901. To connect to it we had to write the IP and the Port 5901 into the Tight VNC Client. And after that we started to configure everything to use the GPS module.
+\paragraph{GPS}
+\begin{minted}{python}
+#Spawn a getty on Raspberry Pi serial line
+T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100
+\end{minted}
+
+
+\paragraph{GPS Data}
+
+\paragraph{Program}
+
+\paragraph{Auto boot}
+
+\paragraph{Problems}
+
+\subsubsection{RASPBIAN JESSIE LITE}
+Jessie Lite is a command line operating system(OS). Our final product will run on this OS, because it starts much faster than Raspbian Wheezy. Another thing is, that they stopped updating Raspbian Wheezy since 2015 and since February 2016 you cannot download it on the official side.
+\paragraph{Getting started}
+
+\paragraph{GPS Configuration}
+
+\paragraph{Copy program on RPi2}
+
+\paragraph{Autostart(as Daemon)}
+
+\paragraph{UMTS Stick}
+
+
 \newpage
 \section{Software Description}
 The software of our \gls{rpi2} consists of two threads and a blocking FileObjectQueue. We get the \gls{gps} data from the \gls{api} and upload it via \gls{rest} in the Database. 
