@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{sudo} \PYG{n}{systemctl} \PYG{n}{start} \PYG{n}{gps\PYGZus{}rest}\PYG{o}{.}\PYG{n}{service}
+\PYG{n}{sudo} \PYG{n}{systemctl} \PYG{n}{stop} \PYG{n}{gps\PYGZus{}rest}\PYG{o}{.}\PYG{n}{service}
+\end{Verbatim}

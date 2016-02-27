@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Default settings for the gpsd init script and the hotplug wrapper.}
+
+\PYG{c+c1}{\PYGZsh{} Start the gpsd daemon automatically at boot time}
+\PYG{n}{START\PYGZus{}DAEMON}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}true\PYGZdq{}}
+
+\PYG{c+c1}{\PYGZsh{} Use USB hotplugging to add new USB devices automatically to the daemon}
+\PYG{n}{USBAUTO}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}false\PYGZdq{}}
+
+\PYG{c+c1}{\PYGZsh{} Devices gpsd should collect to at boot time.}
+\PYG{c+c1}{\PYGZsh{} They need to be read/writeable, either by user gpsd or the group dialout.}
+\PYG{n}{DEVICES}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}/dev/ttyAMA0\PYGZdq{}}
+
+\PYG{c+c1}{\PYGZsh{} Other options you want to pass to gpsd}
+\PYG{n}{GPSD\PYGZus{}OPTIONS}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}
+
+\PYG{c+c1}{\PYGZsh{} Additionally:}
+\PYG{n}{GPSD\PYGZus{}SOCKET}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}/var/run/gpsd.sock\PYGZdq{}}
+\end{Verbatim}

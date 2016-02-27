@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{TIMEOUT} \PYG{l+m+mi}{10}
+\PYG{n}{ABORT} \PYG{l+s+s1}{\PYGZsq{}BUSY\PYGZsq{}}
+\PYG{n}{ABORT} \PYG{l+s+s1}{\PYGZsq{}NO ANSWER\PYGZsq{}}
+\PYG{n}{ABORT} \PYG{l+s+s1}{\PYGZsq{}ERROR\PYGZsq{}}
+\PYG{n}{ABORT} \PYG{l+s+s1}{\PYGZsq{}NO CARRIER\PYGZsq{}}
+
+\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}ATZ\PYGZsq{}}
+\PYG{l+s+s1}{\PYGZsq{}OK\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}ATE1\PYGZsq{}}
+\PYG{l+s+s1}{\PYGZsq{}OK\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}AT+CGDCONT=1,\PYGZdq{}IP\PYGZdq{},\PYGZdq{}webaut\PYGZdq{},\PYGZdq{}0.0.0.0\PYGZdq{},0,0\PYGZsq{}}
+\PYG{l+s+s1}{\PYGZsq{}OK\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}ATDT*99\PYGZsh{}\PYGZsq{}}
+\PYG{l+s+s1}{\PYGZsq{}CONNECT\PYGZsq{}} \PYG{l+s+s1}{\PYGZsq{}\PYGZbs{}c\PYGZsq{}}
+\end{Verbatim}

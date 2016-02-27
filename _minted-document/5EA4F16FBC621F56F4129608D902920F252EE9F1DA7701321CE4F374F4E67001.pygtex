@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{auto} \PYG{n}{lo}
+\PYG{n}{iface} \PYG{n}{lo} \PYG{n}{inet} \PYG{n}{loopback}
+
+\PYG{n}{auto} \PYG{n}{eth0}
+\PYG{n}{allow}\PYG{o}{\PYGZhy{}}\PYG{n}{hotplug} \PYG{n}{eth0}
+\PYG{n}{iface} \PYG{n}{eth0} \PYG{n}{inet} \PYG{n}{dhcp}
+
+\PYG{n}{auto} \PYG{n}{wlan0}
+\PYG{n}{allow}\PYG{o}{\PYGZhy{}}\PYG{n}{hotplug} \PYG{n}{wlan0}
+\PYG{n}{iface} \PYG{n}{wlan0} \PYG{n}{inet} \PYG{n}{manual}
+\PYG{n}{wpa}\PYG{o}{\PYGZhy{}}\PYG{n}{conf} \PYG{o}{/}\PYG{n}{etc}\PYG{o}{/}\PYG{n}{wpa\PYGZus{}supplicant}\PYG{o}{/}\PYG{n}{wpa\PYGZus{}supplicant}\PYG{o}{.}\PYG{n}{conf}
+
+\PYG{n}{auto} \PYG{n}{wlan1}
+\PYG{n}{allow}\PYG{o}{\PYGZhy{}}\PYG{n}{hotplug} \PYG{n}{wlan1}
+\PYG{n}{iface} \PYG{n}{wlan1} \PYG{n}{inet} \PYG{n}{manual}
+\PYG{n}{wpa}\PYG{o}{\PYGZhy{}}\PYG{n}{conf} \PYG{o}{/}\PYG{n}{etc}\PYG{o}{/}\PYG{n}{wpa\PYGZus{}supplicant}\PYG{o}{/}\PYG{n}{wpa\PYGZus{}supplicant}\PYG{o}{.}\PYG{n}{conf}
+\end{Verbatim}

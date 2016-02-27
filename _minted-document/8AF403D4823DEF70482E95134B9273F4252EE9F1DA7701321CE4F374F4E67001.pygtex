@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{auto} \PYG{n}{eth0}
+\PYG{n}{allow}\PYG{o}{\PYGZhy{}}\PYG{n}{hotplug} \PYG{n}{eth0}
+\PYG{n}{iface} \PYG{n}{eth0} \PYG{n}{inet} \PYG{n}{auto}
+\end{Verbatim}
