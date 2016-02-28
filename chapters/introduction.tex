@@ -5,12 +5,12 @@
 Until now, the company has to track the driven distance by hand. They note down different parameters in an EXCEL sheet which is divided into the months of the year.These parameters include the date, tachometer kilometers at the beginning and the end of the trip, how much kilometers are driven for the company or private use, which route they took and the reason.\newline
 This method is very time consuming and has to happen at every driven trip which is for the company. 
 \subsection*{What our functionality is:}
-At first, the RPi2 starts up when the driver starts up the car's ignition. After that, the autostart routine starts our software and the the process of collecting GPS data, saving it and uploading it starts.\newline
-The software checks when started up if there is some GPS data from previous tracks to be uploaded. If that is the case, these data will be read from the save.jPoint from our save thread into the queue of all points and be uploaded to the REST server in advance, so that the old track is entirely stored on the database. \newline
-After this step is completed, the GPS data of the current track gets saved via the API thread into the queue, which then saved for backup reasons into the save.jPoint file.\newline
-During this process, the points are read from the queue and will get uploaded to the REST server. This is possible due to the use of a Blocking queue, which will manage the access of both threads so that no errors occur.\newline
+At first, the \gls{rpi2} starts up when the driver starts up the car's ignition. After that, the autostart routine starts our software and the the process of collecting \gls{gps} data, saving it and uploading it starts.\newline
+The software checks when started up if there is some \gls{gps} data from previous tracks to be uploaded. If that is the case, these data will be read from the save.jPoint from our save thread into the queue of all points and be uploaded to the \gls{rest} server in advance, so that the old track is entirely stored on the \gls{db}. \newline
+After this step is completed, the \gls{gps} data of the current track gets saved via the API thread into the queue, which then saved for backup reasons into the save.jPoint file.\newline
+During this process, the points are read from the queue and will get uploaded to the \gls{rest} server. This is possible due to the use of a Blocking queue, which will manage the access of both threads so that no errors occur.\newline
 The points which have been uploaded successfully are removed from the list and therefore from the synchronized backup file.\newline
-This runs through as long as the RPi2 is supplied with power.
+This runs through as long as the \gls{rpi2} is supplied with power.
 
 
 \newpage
