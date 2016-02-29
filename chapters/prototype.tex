@@ -452,7 +452,7 @@ When the GPS API measures \gls{gps} data, the API Thread gets it from the \gls{a
 \begin{center}
 \includegraphics[width=1\textwidth]{bilder/SoftwareDiagram1}
 \end{center} 
-\subsection{PHP (\gls{rest})}
+\subsection{PHP (REST)}
 This part of our software is responsible for the upload into the database. The \gls{rest} server gets the data formatted as \gls{json}.
 \begin{center}
 \includegraphics[width=1\textwidth]{bilder/SoftwareDiagram2}
@@ -517,7 +517,7 @@ We decided on saving points, which cannot be uploaded, into a \gls{json} (save.j
 \newline \newline
 The same concept is used when the database is offline or not working properly. 
 
-\subsection{Inaccuracy of the \gls{gps} Coordinates}
+\subsection{Inaccuracy of the GPS Coordinates}
 After the first tests, where we tried to get \gls{gps} signal, we noticed the inaccuracy of the signal. This inaccuracy gets influenced by several factors. Therefore we had to find out how precise our \gls{gps} coordinates are and how much of an imprecision (part of the \gls{gps} data we get from our module) there is. 
 \newline \newline
 We evaluated driven tracks and measured how much distance there is between the actual location and the \gls{gps} coordinates received. This difference was about 5 metres, so no problem at all. 
@@ -529,7 +529,7 @@ Due to the fact that we receive how much of an inaccuracy there is in the \gls{g
 %\includegraphics[width=1\textwidth]{}
 \end{center}
 
-\subsection{No \gls{gps} Signal}
+\subsection{No GPS Signal}
 When handling the \gls{gps} inaccuracy, we had to take into account that there could be no signal at all. Therefore we had to decide on a solution when receiving this data and how to handle and save it.
 \newline \newline
 We tried different solutions, but finally decided on not saving them. It is the most efficient way concerning storage, both offline and online.
