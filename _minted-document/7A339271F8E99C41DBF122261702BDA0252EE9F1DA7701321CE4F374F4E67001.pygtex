@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{c+c1}{\PYGZsh{}!/bin/sh}
+
+	\PYG{n}{sudo} \PYG{n}{killall} \PYG{n}{gpsd}
+	\PYG{n}{sudo} \PYG{n}{gpsd} \PYG{o}{/}\PYG{n}{dev}\PYG{o}{/}\PYG{n}{ttyAMA0} \PYG{o}{\PYGZhy{}}\PYG{n}{F} \PYG{o}{/}\PYG{n}{var}\PYG{o}{/}\PYG{n}{run}\PYG{o}{/}\PYG{n}{gpsd}\PYG{o}{.}\PYG{n}{sock} \PYG{o}{\PYGZhy{}}\PYG{n}{G}
+\end{Verbatim}

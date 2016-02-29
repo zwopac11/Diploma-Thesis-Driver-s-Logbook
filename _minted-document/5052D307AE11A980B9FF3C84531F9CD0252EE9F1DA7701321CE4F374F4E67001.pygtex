@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{o}{\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{p}{[} \PYG{n}{end} \PYG{n}{Kernel} \PYG{n}{panic} \PYG{o}{\PYGZhy{}} \PYG{o+ow}{not} \PYG{n}{syncing}\PYG{p}{:} \PYG{n}{VFS}\PYG{p}{:} \PYG{n}{Unable} \PYG{n}{to} \PYG{n}{mount} \PYG{n}{root} \PYG{n}{fs} \PYG{n}{on} \PYG{n}{unknown}\PYG{o}{\PYGZhy{}}\PYG{n}{block}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{)}
-\end{Verbatim}

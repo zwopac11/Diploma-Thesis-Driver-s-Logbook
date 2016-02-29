@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{p}{[}\PYG{n}{Unit}\PYG{p}{]}
+	\PYG{n}{Description}\PYG{o}{=}\PYG{n}{GPS} \PYG{n}{Rest} \PYG{n}{Daemon} \PYG{n}{PaClLaHell}
+	\PYG{p}{[}\PYG{n}{Service}\PYG{p}{]}
+	\PYG{n}{ExecStart}\PYG{o}{=/}\PYG{n}{sbin}\PYG{o}{/}\PYG{n}{start}\PYG{o}{\PYGZhy{}}\PYG{n}{stop}\PYG{o}{\PYGZhy{}}\PYG{n}{daemon} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{start} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{quiet} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{make}\PYG{o}{\PYGZhy{}}\PYG{n}{pidfile}
+	\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{pidfile} \PYG{o}{/}\PYG{n}{var}\PYG{o}{/}\PYG{n}{run}\PYG{o}{/}\PYG{n}{gps\PYGZus{}rest}\PYG{o}{.}\PYG{n}{pid} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{background} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{user} \PYG{n}{pi} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{chuid} \PYG{n}{pi}
+	\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{chdir} \PYG{o}{/}\PYG{n}{opt}\PYG{o}{/}\PYG{n}{gps} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{k}{exec} \PYG{o}{/}\PYG{n}{usr}\PYG{o}{/}\PYG{n+nb}{bin}\PYG{o}{/}\PYG{n}{java} \PYG{o}{\PYGZhy{}\PYGZhy{}} \PYG{o}{\PYGZhy{}}\PYG{n}{jar} \PYG{n}{GPS\PYGZus{}REST}\PYG{o}{.}\PYG{n}{jar}
+	\PYG{n}{ExecStop}\PYG{o}{=/}\PYG{n}{sbin}\PYG{o}{/}\PYG{n}{start}\PYG{o}{\PYGZhy{}}\PYG{n}{stop}\PYG{o}{\PYGZhy{}}\PYG{n}{daemon} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{stop} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{quiet} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{pidfile}
+	\PYG{o}{/}\PYG{n}{var}\PYG{o}{/}\PYG{n}{run}\PYG{o}{/}\PYG{n}{gps\PYGZus{}rest}\PYG{o}{.}\PYG{n}{pid} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{user} \PYG{n}{pi} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{chuid} \PYG{n}{pi} \PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{k}{exec} \PYG{o}{/}\PYG{n}{usr}\PYG{o}{/}\PYG{n+nb}{bin}\PYG{o}{/}\PYG{n}{java}
+	\PYG{n}{Type}\PYG{o}{=}\PYG{n}{forking}
+	\PYG{p}{[}\PYG{n}{Install}\PYG{p}{]}
+	\PYG{n}{WantedBy}\PYG{o}{=}\PYG{n}{multi}\PYG{o}{\PYGZhy{}}\PYG{n}{user}\PYG{o}{.}\PYG{n}{target}
+\end{Verbatim}
