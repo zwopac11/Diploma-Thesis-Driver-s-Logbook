@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{auto} \PYG{n}{wlan0}
+	\PYG{n}{allow}\PYG{o}{\PYGZhy{}}\PYG{n}{hotplug} \PYG{n}{wlan0}
+	\PYG{n}{iface} \PYG{n}{wlan0} \PYG{n}{inet} \PYG{n}{dhcp}
+	\PYG{n}{wpa}\PYG{o}{\PYGZhy{}}\PYG{n}{ssid} \PYG{l+s+s2}{\PYGZdq{}linksys\PYGZdq{}}
+	\PYG{n}{wpa}\PYG{o}{\PYGZhy{}}\PYG{n}{psk} \PYG{l+s+s2}{\PYGZdq{}raspberry\PYGZdq{}}
+\end{Verbatim}

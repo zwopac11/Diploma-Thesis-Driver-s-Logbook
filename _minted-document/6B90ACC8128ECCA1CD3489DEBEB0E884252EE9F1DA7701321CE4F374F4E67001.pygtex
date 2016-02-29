@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{c+c1}{\PYGZsh{} interfaces(5) file used by ifup(8) and ifdown(8)}
+
+	\PYG{c+c1}{\PYGZsh{} Please note that this file is written to be used with dhcpcd}
+	\PYG{c+c1}{\PYGZsh{} For static IP, consult /etc/dhcpcd.conf and \PYGZsq{}man dhcpcd.conf\PYGZsq{}}
+
+	\PYG{c+c1}{\PYGZsh{} Include files from /etc/network/interfaces.d:}
+	\PYG{n}{source}\PYG{o}{\PYGZhy{}}\PYG{n}{directory} \PYG{o}{/}\PYG{n}{etc}\PYG{o}{/}\PYG{n}{network}\PYG{o}{/}\PYG{n}{interfaces}\PYG{o}{.}\PYG{n}{d}
+
+	\PYG{n}{auto} \PYG{n}{lo}
+	\PYG{n}{iface} \PYG{n}{lo} \PYG{n}{inet} \PYG{n}{loopback}
+
+	\PYG{n}{auto} \PYG{n}{eth0}
+	\PYG{n}{iface} \PYG{n}{eth0} \PYG{n}{inet} \PYG{n}{dhcp}
+
+	\PYG{n}{allow}\PYG{o}{\PYGZhy{}}\PYG{n}{hotplug} \PYG{n}{ppp0}
+	\PYG{n}{auto} \PYG{n}{ppp0}
+	\PYG{n}{iface} \PYG{n}{ppp0} \PYG{n}{inet} \PYG{n}{ppp}
+	\PYG{n}{provider} \PYG{n}{hot\PYGZus{}internet}
+
+	\PYG{n}{allow}\PYG{o}{\PYGZhy{}}\PYG{n}{hotplug} \PYG{n}{wlan0}
+	\PYG{n}{iface} \PYG{n}{wlan0} \PYG{n}{inet} \PYG{n}{manualrp}
+	    \PYG{n}{wpa}\PYG{o}{\PYGZhy{}}\PYG{n}{conf} \PYG{o}{/}\PYG{n}{etc}\PYG{o}{/}\PYG{n}{wpa\PYGZus{}supplicant}\PYG{o}{/}\PYG{n}{wpa\PYGZus{}supplicant}\PYG{o}{.}\PYG{n}{conf}
+
+	\PYG{n}{allow}\PYG{o}{\PYGZhy{}}\PYG{n}{hotplug} \PYG{n}{wlan1}
+	\PYG{n}{iface} \PYG{n}{wlan1} \PYG{n}{inet} \PYG{n}{manual}
+	    \PYG{n}{wpa}\PYG{o}{\PYGZhy{}}\PYG{n}{conf} \PYG{o}{/}\PYG{n}{etc}\PYG{o}{/}\PYG{n}{wpa\PYGZus{}supplicant}\PYG{o}{/}\PYG{n}{wpa\PYGZus{}supplicant}\PYG{o}{.}\PYG{n}{conf}
+\end{Verbatim}

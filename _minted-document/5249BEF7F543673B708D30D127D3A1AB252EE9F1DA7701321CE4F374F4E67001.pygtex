@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{sudo} \PYG{n}{mount} \PYG{o}{/}\PYG{n}{dev}\PYG{o}{/}\PYG{n}{sda1} \PYG{o}{/}\PYG{n}{mnt}\PYG{o}{/}\PYG{n}{usb}\PYG{o}{/} \PYG{o}{\PYGZhy{}}\PYG{n}{o} \PYG{n}{uid}\PYG{o}{=}\PYG{l+m+mi}{1000}
+\end{Verbatim}

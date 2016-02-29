@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{sudo} \PYG{n}{nano} \PYG{o}{/}\PYG{n}{boot}\PYG{o}{/}\PYG{n}{cmdline}\PYG{o}{.}\PYG{n}{txt}
+\end{Verbatim}

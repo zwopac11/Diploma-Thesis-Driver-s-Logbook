@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{sudo} \PYG{n}{nano} \PYG{o}{/}\PYG{n}{etc}\PYG{o}{/}\PYG{n}{default}\PYG{o}{/}\PYG{n}{gpsd}
+\end{Verbatim}

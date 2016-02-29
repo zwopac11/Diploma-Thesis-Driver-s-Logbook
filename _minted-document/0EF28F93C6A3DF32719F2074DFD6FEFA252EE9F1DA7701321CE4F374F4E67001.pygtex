@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{sudo} \PYG{n}{ln} \PYG{o}{\PYGZhy{}}\PYG{n}{s} \PYG{o}{/}\PYG{n}{opt}\PYG{o}{/}\PYG{n}{gps}\PYG{o}{/}\PYG{n}{udev}\PYG{o}{/}\PYG{n}{rules}\PYG{o}{/}\PYG{l+m+mi}{70}\PYG{o}{\PYGZhy{}}\PYG{n}{usb}\PYG{o}{\PYGZhy{}}\PYG{n}{modeswitch}\PYG{o}{.}\PYG{n}{rules}
+\end{Verbatim}
