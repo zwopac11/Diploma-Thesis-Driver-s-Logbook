@@ -11,7 +11,7 @@ We only used the \gls{gps} antenna for testing. Our problem was that it took rea
 \subsection{UMTS Stick}
 The \gls{umts} Stick is needed for transmitting the data to the \gls{db}.\newline
 \includegraphics[width=0.48\textwidth]{bilder/Medion_3}
-\subsection{USV}
+\subsection{UPS}
 When the car is switched off the power of the \gls{rpi2} is cut. When the \gls{rpi2} gets power again, it has to do a system check and repair all files. With the \gls{ups} this won’t happen, because the \gls{ups} will shut down the \gls{rpi2}.\newline
 \includegraphics[width=0.48\textwidth]{bilder/USV}
 \newpage
@@ -460,27 +460,27 @@ This part of our software is responsible for the upload into the database. The \
 \section{Code Structure}
 \subsection{Classes}
 \subsubsection{GPS.java}
-\paragraph{Constructor}
+\paragraph{Constructor}\mbox{}\\
 In the GPS.java class, the gpsModuleAddress variable is initialized and gets it is value from the GPSConfiguration.java class.
-\paragraph{startGpsdClient}
+\paragraph{startGpsdClient}\mbox{}\\
 In the startGpsdClient method, the GPS API is initialized and the validate method from the BL.java class is called every time we get data from the GPS API.
 \subsubsection{BL.java}
-\paragraph{Constructor}
+\paragraph{Constructor}\mbox{}\\
 In this class the FileObjectQueue is created and initialized by the save.jPoint file and the GsonConverter.java class. 
 Then a new track is created and at last the SaveDataThread object is initialized and started.
-\paragraph{Validate}
+\paragraph{Validate}\mbox{}\\
 Checks if the data from the GPS API is a Number if not it will be set to 0 except the latitude and the longitude. If they are \gls{nan} it will do nothing. 
 Then it adds the data from the GPS API to the FileObjectQueue.
-\paragraph{ProcessData}
+\paragraph{ProcessData}\mbox{}\\
 This method peeks max 50 and min 15 points from the FileObjectQueue and puts them into a JContainer. Then it sends these points to the DataManager.java class to upload them via the uploadContainer method.
 \subsubsection{SaveDataThread.java}
 This is an intern Class in the \gls{bl} class which extends Thread.
-\paragraph{Run}
+\paragraph{Run}\mbox{}\\
 This override method calls the ProcessData method and then waits 1 second.
 \subsubsection{Data Manager.java}
-\paragraph{Constructor}
+\paragraph{Constructor}\mbox{}\\
 Gets the server \gls{url} and puts it on the urlString variable.
-\paragraph{UploadContainer}
+\paragraph{UploadContainer}\mbox{}\\
 Uploads the JContainer it got, to the Server via \gls{rest} 
 \subsubsection{JContainer.java}
 This is a beans class that contains attributes, getter and setter methods for the respective attribute and a toString method of the JContainer.
@@ -488,7 +488,7 @@ This is a beans class that contains attributes, getter and setter methods for th
 This is a beans class that contains attributes, getter and setter methods for the respective attribute and a toString method of the JPoint.
 \subsubsection{GPSConfiguration.java}
 At the beginning this class loads the logging properties.
-\paragraph{InitConfiguration}
+\paragraph{InitConfiguration}\mbox{}\\
 Reads the properties for the program from a file and sets these values on the specified variables. If a value is not in the file, it sets a default value. And at the end it closes the file.
 \subsubsection{GsonConverter.java}
 This class is a converter class that has implemented a FileObjectQueue Converter. In the method from, the bytes from the file are converted, so that they can be saved on the FileObjectQueue. In the toStream method, it is the other way round, so the FileObjectQueue is saved on a file.
