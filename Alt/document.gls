@@ -2,7 +2,10 @@
 \begin{theglossary}\glossaryheader
 \glsgroupheading{A}\relax \glsresetentrylist %
 \glossentry{api}{\glossaryentrynumbers{\relax 
+<<<<<<< HEAD
 		\setentrycounter[]{page}\glsnumberformat{48}\delimN 
+=======
+>>>>>>> b099a18626f60ef8dbb856355a5dd011c5709a8f
 		\setentrycounter[]{page}\glsnumberformat{58}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{86}}}\glsgroupskip
 \glsgroupheading{B}\relax \glsresetentrylist %
@@ -21,7 +24,11 @@
 \glsgroupheading{D}\relax \glsresetentrylist %
 \glossentry{db}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{2}\delimN 
+<<<<<<< HEAD
 		\setentrycounter[]{page}\glsnumberformat{13\delimN 14}\delimN 
+=======
+		\setentrycounter[]{page}\glsnumberformat{12\delimR 14}\delimN 
+>>>>>>> b099a18626f60ef8dbb856355a5dd011c5709a8f
 		\setentrycounter[]{page}\glsnumberformat{16}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{31}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{33\delimN 34}\delimN 
@@ -75,7 +82,11 @@
 		\setentrycounter[]{page}\glsnumberformat{24\delimN 25}}}\glsgroupskip
 \glsgroupheading{I}\relax \glsresetentrylist %
 \glossentry{ide}{\glossaryentrynumbers{\relax 
+<<<<<<< HEAD
 		\setentrycounter[]{page}\glsnumberformat{87}}}%
+=======
+		\setentrycounter[]{page}\glsnumberformat{88}}}%
+>>>>>>> b099a18626f60ef8dbb856355a5dd011c5709a8f
 \glossentry{ios}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{19\delimR 23}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{27\delimR 32}\delimN 
@@ -107,7 +118,11 @@
 \glossentry{mysql}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{16}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{71}\delimN 
+<<<<<<< HEAD
 		\setentrycounter[]{page}\glsnumberformat{87}}}\glsgroupskip
+=======
+		\setentrycounter[]{page}\glsnumberformat{88}}}\glsgroupskip
+>>>>>>> b099a18626f60ef8dbb856355a5dd011c5709a8f
 \glsgroupheading{N}\relax \glsresetentrylist %
 \glossentry{nan}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{60}}}%
@@ -116,7 +131,11 @@
 \glsgroupheading{O}\relax \glsresetentrylist %
 \glossentry{os}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{50}\delimN 
+<<<<<<< HEAD
 		\setentrycounter[]{page}\glsnumberformat{86}}}\glsgroupskip
+=======
+		\setentrycounter[]{page}\glsnumberformat{87}}}\glsgroupskip
+>>>>>>> b099a18626f60ef8dbb856355a5dd011c5709a8f
 \glsgroupheading{P}\relax \glsresetentrylist %
 \glossentry{pdf}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{19\delimR 22}\delimN 
@@ -171,7 +190,11 @@
 		\setentrycounter[]{page}\glsnumberformat{67\delimN 68}}}\glsgroupskip
 \glsgroupheading{W}\relax \glsresetentrylist %
 \glossentry{wlan}{\glossaryentrynumbers{\relax 
+<<<<<<< HEAD
 		\setentrycounter[]{page}\glsnumberformat{49}}}\glsgroupskip
+=======
+		\setentrycounter[]{page}\glsnumberformat{48\delimN 49}}}\glsgroupskip
+>>>>>>> b099a18626f60ef8dbb856355a5dd011c5709a8f
 \glsgroupheading{X}\relax \glsresetentrylist %
 \glossentry{xml}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{25}\delimN 
