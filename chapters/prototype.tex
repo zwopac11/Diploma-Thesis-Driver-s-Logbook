@@ -90,21 +90,21 @@ There ist the
 	sudo cgps -s
 \end{minted}
 command:\newline
-Bild
+\includegraphics[scale=0.7]{bilder/scr1}
 \newline
 then the
 \begin{minted}{python}
 	sudo xgps
 \end{minted}
 command:\newline
-Bile
+\includegraphics[scale=0.9]{bilder/scr2}
 \newline
 and at last the 
 \begin{minted}{python}
 	sudo gpsmon
 \end{minted}
 command:\newline
-Bild
+\includegraphics[scale=0.7]{bilder/scr3}
 \newline
 Then we wanted to save the \gls{gps} Data on the \gls{rpi2}. We did this with the 
 \begin{minted}{python}
@@ -126,7 +126,8 @@ to get a KML file and
 \end{minted}
 to get a GPX file.
 \paragraph{Program} \mbox{}\\
-After that we started programming. Since the programming language we all know best is java and it is possible, that our program will also run on smartphone we chose this language. \newline
+After that we started programming. Since the programming language we all know best is java and it is possible, that our program will also run on smartphone we chose this language. 
+
 We looked for an api for java and found one and also a small test program. \newline
 But to run a java program we needed java on the \gls{rpi2}. We wanted to use java 8, but there was no real java 8 jdk for the \gls{rpi2}, so we had to use java 7. We did that with the 
 \begin{minted}{python}
@@ -158,7 +159,8 @@ command.
 
 \paragraph{Problems} \mbox{}\\
 Here we are going to explain some problems we had and did not mention before.\newline
-Since we had a \gls{wlan} stick, we wanted to configure the \gls{rpi2} so that it could connect to a Router. We found out, that we should edit the /etc/network/interfaces file. We did that with the sudo \textit{nano /etc/network/interfaces} command.\newline
+Since we had a \gls{wlan} stick, we wanted to configure the \gls{rpi2} so that it could connect to a Router. We found out, that we should edit the /etc/network/interfaces file. We did that with the sudo \textit{nano /etc/network/interfaces} command.
+\newline \newline
 At the beginning it looked like this:
 \begin{minted}{python}
 	auto lo
@@ -191,11 +193,12 @@ This worked, but  if the \gls{rpi2} started and there was no \gls{wlan}, the \gl
 \subsubsection{RASPBIAN JESSIE LITE}
 Jessie Lite is a command line \gls{os}. Our final product will run on this \gls{os}, because it starts much faster than Raspbian Wheezy. Another thing is, that they stopped updating Raspbian Wheezy since 2015 and since February 2016 you cannot download it on the official side.
 \paragraph{Getting started} \mbox{}\\
-At the beginning we downloaded the Raspbian Jessie Lite image and wrote the .img file on the microSD Card. \newline
-There was the first Problem. \newline
-The old Raspbian Wheezy image set the partition size to the maximum while booting. With Jessie Lite we had to do that ourselves. \newline
-The next problem was that the ethernet interfaces \gls{ip} was set to manual. Wheezy had set it to auto. So, if we want to have internet access from the beginning, we had to edit the interface file (/etc/network/interfaces) bevor booting the \gls{rpi2}. Since we did it after the boot too, we are going to describe how to do that later and there you can also see what we changed in this file. \newline
-The next thing we did, is to edit the boot file(/boot/cmdline.txt). This we had to do so the \gls{gpsd} can get the data from the pins. We did the same as with the ethernet interface later too. With this file, there is no difference when we did it. \newline
+At the beginning we downloaded the Raspbian Jessie Lite image and wrote the .img file on the microSD Card. There was the first Problem. The old Raspbian Wheezy image set the partition size to the maximum while booting. With Jessie Lite we had to do that ourselves. 
+
+The next problem was that the ethernet interfaces \gls{ip} was set to manual. Wheezy had set it to auto. So, if we want to have internet access from the beginning, we had to edit the interface file (/etc/network/interfaces) bevor booting the \gls{rpi2}. Since we did it after the boot too, we are going to describe how to do that later and there you can also see what we changed in this file.
+
+The next thing we did, is to edit the boot file(/boot/cmdline.txt). This we had to do so the \gls{gpsd} can get the data from the pins. We did the same as with the ethernet interface later too. With this file, there is no difference when we did it. 
+\newline \newline
 In this file we had to remove 
 \begin{minted}{python}
 	console=ttyAMA0,115200
