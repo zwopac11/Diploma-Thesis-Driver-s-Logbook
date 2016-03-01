@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{/}\PYG{n}{dwc\PYGZus{}otg}\PYG{o}{.}\PYG{n}{lpm\PYGZus{}enable}\PYG{o}{=}\PYG{l+m+mi}{0} \PYG{n}{console}\PYG{o}{=}\PYG{n}{tty1} \PYG{n}{root}\PYG{o}{=/}\PYG{n}{dev}\PYG{o}{/}\PYG{n}{mmcblk0p2} \PYG{n}{rootfstype}\PYG{o}{=}\PYG{n}{ext4}
+\PYG{n}{elevator}\PYG{o}{=}\PYG{n}{deadline} \PYG{n}{rootwait}
+\end{Verbatim}
