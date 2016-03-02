@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{n}{console}\PYG{o}{=}\PYG{n}{ttyAMA0}\PYG{p}{,}\PYG{l+m+mi}{115200} \PYG{n}{kgdboc}\PYG{o}{=}\PYG{n}{ttyAMA0}\PYG{p}{,}\PYG{l+m+mi}{115200}
+\end{Verbatim}
