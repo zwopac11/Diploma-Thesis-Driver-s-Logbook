@@ -461,7 +461,7 @@ When pon/poff worked, we had to configure the /etc/network/interfaces and here w
 	iface wlan1 inet manual
 	    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 \end{minted}
-\textbf{References:} \cite{gpsd}, \cite{USBModeSwitch}, \cite{GSMmobile}, \cite{USBModemStickMedion}, \cite{PPPunderUbuntu}, \cite{USBSurfstick}, \cite{Reboot}, \cite{DaemonizeJavaApplications}, \cite{raspberrypi}, \cite{Tastaturlayout}, \cite{TightVNCServer}, \cite{RaspberryPiGPS}, \cite{Git}, \cite{gpsbable}, \cite{autostartScript}, \cite{wlan}
+\textbf{References:} \cite{gpsd}, \cite{USBModeSwitch}, \cite{GSMmobile}, \cite{USBModemStickMedion}, \cite{PPPunderUbuntu}, \cite{USBSurfstick}, \cite{Reboot}, \cite{DaemonizeJavaApplications}, \cite{raspberrypi}, \cite{Tastaturlayout}, \cite{TightVNCServer}, \cite{RaspberryPiGPS}, \cite{gpsbable}, \cite{autostartScript}, \cite{wlan}
 \newpage
 \section{Software Description}
 The software of our \gls{rpi2} consists of two threads and a blocking FileObjectQueue. We get the \gls{gps} data from the \gls{api} and upload it via \gls{rest} in the \gls{db}. 
@@ -569,3 +569,4 @@ Meaning of not saving data when having no signal:
 	\end{itemize}		
 \item data extraction for our partner company when displaying the data on maps will be easier
 \end{itemize}
+\textbf{References:}  \cite{Git}, \cite{Gpsd4java}
