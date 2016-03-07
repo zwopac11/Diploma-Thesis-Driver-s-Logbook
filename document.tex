@@ -1,4 +1,5 @@
-  \documentclass[a4paper,final]{scrreprt}
+\documentclass[a4paper,final,headinclude=true,footinclude=true, headsepline=1pt]{scrreprt}
+%bei documentclass footsepline=1pt einfügen für linie ober fußzeile
 
 \usepackage[utf8]{inputenc}
 %für die € Zeichen
@@ -40,7 +41,16 @@
 %zeilenabstand setzen
 \renewcommand{\baselinestretch}{1.3}
 
-
+%headerpackage
+\usepackage{scrlayer-scrpage}
+\clearscrheadfoot
+\pagestyle{headings}
+%lo = left outer
+\lohead{\headmark}
+%für seitenzahl
+\ofoot[\pagemark]{\pagemark}
+\automark[chapter]{chapter}
+\renewcommand*{\chapterpagestyle}{headings}
 
 
 
