@@ -16,18 +16,18 @@ Although, there were some hard times where we had struggles and sometimes a lack
 All in all, we have learned a lot of new things. For instance, how it is like to do a work in such a range in a team, or to deal with different situations and problems. Moreover, we were able to use new technologies and learn some new technical aspects.
 \newpage
 \section*{State of the Art}
-Until now, the company has to track the driven distance by hand. They note down different parameters in an EXCEL sheet. There is a separate sheet for each month of the year. These parameters include the date, tachometer kilometers at the beginning and the end of the trip, how much kilometers are driven for the company or private use, the route they took, and the reason for driving.
+Until now, the company has to track the driven distance by hand. They note down different parameters in an EXCEL sheet. There is a separate sheet for each month of the year. These parameters include the date, tachometer kilometers at the beginning and the end of the trip, how much kilometers are driven for the companys or private use, the route they took, and the reason for driving.
 
 This method is very time consuming and has to be done for every company related trip. Non company related trips must be excluded.
 \subsection*{Our functionalities}
-The \gls{rpi2} powers up when the driver starts up the car's ignition. After that, the autostart routine starts our software, including the process of collecting \gls{gps} data, saving and uploading it.
+The \gls{rpi2} powers up when the driver starts up the cars ignition. After that, the autostart routine starts our software, including the process of collecting \gls{gps} data, saving and uploading it.
 
 When the software started up, it checks if there is some \gls{gps} data from previous tracks to be uploaded. If that is the case, this data will be read from the save.jPoint file into the queue. After that, the save thread uploads a maximum of 50 points to the \gls{rest} service. 
 
 
 Then the \gls{gps} data of the current track gets saved via the API thread into the queue and then synchronized with the save.jPoint file.
 
-Reading and writing data simultaneously is possible due to the use of a blocking queue. This type of list manages the access of the list so that no errors occur.\newline
+Reading and writing data simultaneously is possible due to the use of a blocking queue. This special type of queue manages the access of the list so that no errors occur.\newline
 Successfully uploaded points are removed from the list and therefore from the synchronized backup file.
 
 This runs through as long as the \gls{rpi2} is supplied with power.
@@ -45,7 +45,7 @@ In this part of our diploma-thesis it is listed up what our employer, Sunlime IT
 The company provides the \gls{rpi2} with all the components like \gls{gps} Module or antenna to create a working hardware prototype for the logbook.
 
 Secondly, at the data transfer, they will define when and over which portal the data has to be sent. Moreover, it should be apparent which user is transferring the data, so it can be dedicated online. It is also important to consider the user data when designing the \gls{db}. Furthermore, a feature list has to be defined and integrated.
-The web server for the portal is also provided and maintained from the company.
+The web server for the portal is also provided and maintained by the company.
 
 An external service provider creates the design from the existing wireframing and Sunlime IT Services implements the technical aspects to it. The external service provider should also design a Logo for the product.
 
@@ -56,14 +56,14 @@ Then, the logbook should also work on smartphones. Therefore, Adobe PhoneGap wil
 Finally, the company is responsible for the security on the servers. It should not be possible to have access on a server as third person. Passwords are only allowed to get saved encrypted.
 \newpage
 \section*{Goals}
-The goal of our diploma-thesis is to build a working hardware prototype. This is recording the driven \gls{gps} data. A \gls{rpi2} with a \gls{gps} module has to be placed in a car. The prototype tracks \gls{gps} data and transfers it to the \gls{rest} service. \gls{rest} is responsible for uploading data into the \gls{db}. 
+The goal of our diploma-thesis is to build a working hardware prototype. A \gls{rpi2} with a \gls{gps} module has to be placed in a car. The prototype tracks \gls{gps} data and transfers it to the \gls{rest} service. \gls{rest} is responsible for uploading data into the \gls{db}. 
 
 In case there is no internet connection, we store the \gls{gps} data locally. The program structure is described in our Software description section.
 
-Information about the user and the tracks have to be stored in the \gls{db}. We also created and designed a \gls{erd} to illustrate the structure of the \gls{db}. Furthermore, the \gls{ddl} and the \gls{dml} resulted out of the \gls{erd}.
+Information about the user and the tracks have to be stored in the \gls{db}. We also created and designed an \gls{erd} to illustrate the structure of the \gls{db}. Furthermore, the \gls{ddl} and the \gls{dml} resulted out of the \gls{erd}.
 
 The wireframing is the Front-End representation of our diploma thesis. It displays the user interface on our web portal and mobile application. The result of it is a user-friendly design.
 
-To get a unique product, the market needs to get analysed. Here, the competitors should get detected and compared in different attributes. For instance: costs, supported platforms, \gls{gps}, hardware etc. With this information, we create a diploma-thesis that differs from other products. Furthermore, other intended uses of the hardware prototype should get noted down.
+To get a unique product, the market needs to get analysed. Here, the competitors should get detected and compared in different attributes. For instance: costs, supported platforms, \gls{gps}, hardware etc. With this information, we create a diploma-thesis that differs from other products. Furthermore, other possible uses of the hardware prototype should get noted down.
 
-Last but not least, the project management of the working packets has to be defined appropriate and documented.
+Last but not least, the project management of the work packages has to be defined appropriate and documented.
