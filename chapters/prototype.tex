@@ -2,16 +2,16 @@
 \section{RPi2 Hardware}
 \pageauthor{Paul Zwölfer}
 \subsection{GPS Module}
-The \gls{gps} module had to be soldered to the pins. At the beginning we did not want to do that, but without doing that the module did not really connect to the pins so we had to do it.\newline
+The \gls{gps} module had to be soldered to the \gls{gpio} pins. At the beginning we did not want to do that, but without doing that the module did not really connect to the pins so we had to do it.\newline
 \includegraphics[width=0.48\textwidth]{bilder/GPS}
 \subsection{GPS Antenna}
-We only used the \gls{gps} antenna for testing. Our problem was that it took really long to get a \gls{gps} signal every time we changed the location. With the antenna it worked much quicker. In the final product there will no antenna be included .\newline 
+We only used the \gls{gps} antenna for testing. Our problem was that it took really long to get a \gls{gps} signal every time we changed the location. With the antenna it worked much quicker. In the final product there won't be an antenna included .\newline 
 \includegraphics[width=0.48\textwidth]{bilder/Antenna}
 \subsection{UMTS Stick}
 The \gls{umts} stick is necessary for transmitting the data to the \gls{db}.\newline
 \includegraphics[width=0.48\textwidth]{bilder/Medion_3}
 \subsection{UPS}
-If the engine of the car is switched off, the power of the \gls{rpi2} is cut. When the \gls{rpi2} gets power from the engine again, it has to do a system check and repair all files. Our final product will use an \gls{ups}. This \gls{ups} supplies our \gls{rpi2} with power even if the engine of the car is turned off. Due to that, there is no longer a problem if with losing tracked data.\newline
+If the engine of the car is switched off, the power supply of the \gls{rpi2} is interrupted. When the \gls{rpi2} gets power from the engine again, it has to do a system check and repair all files. Our final product will use an \gls{ups}. This \gls{ups} supplies our \gls{rpi2} with power even if the engine of the car is turned off. Due to that, there is no longer a problem if with losing tracked data.\newline
 \includegraphics[width=0.48\textwidth]{bilder/USV}
 \newpage
 \subsection{OS}
@@ -39,12 +39,12 @@ Now it looked like this:
 /dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 
 elevator=deadline rootwait
 \end{minted}
-The \gls{rpi2} sends all terminal output over the external serial. To disable this behaviour, we had to edit the the /etc/inittab file. We did this with the 
+The \gls{rpi2} sends all terminal output over the external serial. To disable this behaviour, we had to edit the /etc/inittab file. We did this with the 
 \begin{minted}{python}
 	sudo nano /etc/inittab
 \end{minted}
 command.\newline
-There we had to comment out following line:
+There we had to comment out the following line:
 \begin{minted}{python}
 #Spawn a getty on Raspberry Pi serial line
 T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100
