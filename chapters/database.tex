@@ -1,4 +1,5 @@
 \chapter{Database}
+\pageauthor{Laura Rössl, Paul Zwölfer}
 One of our four main parts of our diploma thesis was the data design and \gls{db}. We started with creating an entity relationship diagram. This \gls{erd} was the base of our \gls{db}. Because of constant changes in our program structure, we had to change the \gls{db} structure too. 
 \section{Entity Relationship Diagram}
 \begin{center}
@@ -138,3 +139,4 @@ VALUES('007dae03-c915-4aae-baf9-2b7c42a41e43', 1455535245172, 1234,
 \end{minted}
 \section{Problems}
 While we tried to insert testing data into our \gls{db}, we noticed that it wasn’t possible to save the timestamp as milliseconds. After researches, we discovered that the problem was the version of our \gls{mysql} \gls{db} (version 5.5.46). Due to this problem we had to change the datatype of our timestamp into bigint.
+\clearpageauthor

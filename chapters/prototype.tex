@@ -1,7 +1,7 @@
 \chapter{Prototype}
 \section{RPi2 Hardware}
+\pageauthor{Paul Zwölfer}
 \subsection{GPS Module}
-    
 The \gls{gps} module had to be soldered to the pins. At the beginning we did not want to do that, but without doing that the module did not really connect to the pins so we had to do it.\newline
 \includegraphics[width=0.48\textwidth]{bilder/GPS}
 \subsection{GPS Antenna}
@@ -462,8 +462,10 @@ When pon/poff worked, we had to configure the /etc/network/interfaces and here w
 	    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 \end{minted}
 \textbf{References:} \cite{gpsd}, \cite{USBModeSwitch}, \cite{GSMmobile}, \cite{USBModemStickMedion}, \cite{PPPunderUbuntu}, \cite{USBSurfstick}, \cite{Reboot}, \cite{DaemonizeJavaApplications}, \cite{raspberrypi}, \cite{Tastaturlayout}, \cite{TightVNCServer}, \cite{RaspberryPiGPS}, \cite{gpsbable}, \cite{autostartScript}, \cite{wlan}
+\clearpageauthor
 \newpage
 \section{Software Description}
+\pageauthor{Laura Rössl, Paul Zwölfer}
 The software of our \gls{rpi2} consists of two threads and a blocking FileObjectQueue. We get the \gls{gps} data from the \gls{api} and upload it via \gls{rest} in the \gls{db}. 
 \subsection{Functions}
 First of all a logging property file and a gps property file are loaded. The logging property file contains logging information like the saving location and the maximum number of logging files. The gps property file contains the raspberry id, the server \gls{url} and the gps module \gls{ip}.
@@ -522,7 +524,9 @@ This class is a converter class that has implemented a FileObjectQueue Converter
 \begin{center}
 \includegraphics[width=1\textwidth]{bilder/GPS_REST_UML_Diagram}
 \end{center}
+\clearpageauthor
 \section{Problems}
+\pageauthor{Claudio Knapp}
 \subsection{Uploading into Database}
 When we started with this project, we uploaded tracked data directly into the database over a standard java database connection. During our work on this project, we learned the technology hibernate in school so we reconstructed our program and used hibernate. Later our employer told us, that we should use \gls{rest} to upload data for a higher security level and fewer connections to the database and therefore less overhead. We wrote the \gls{rest} \gls{php} script on our own. 
 \subsection{Offline Saving}
@@ -542,7 +546,6 @@ When does an connection error occur:
 We decided on saving points, that cannot be uploaded, into a \gls{json} (save.jPoint). This solution proved to be the most fitting idea we thought of. It perfectly handled the described problems, reliably managed points and the saving mechanism worked phenomenal.
 \newline \newline
 The same concept is used when the database is offline or not working properly. 
-
 \subsection{Inaccuracy of the GPS Coordinates}
 After the first tests, where we tried to get \gls{gps} signal, we noticed the inaccuracy of the signal. This inaccuracy gets influenced by several factors. Therefore we had to find out how precise our \gls{gps} coordinates are and how much of an imprecision (part of the \gls{gps} data we get from our module) there is. 
 \newline \newline
@@ -570,8 +573,10 @@ Meaning of not saving data when having no signal:
 \item data extraction for our partner company when displaying the data on maps will be easier
 \end{itemize}
 \textbf{References:}  \cite{Git}, \cite{Gpsd4java}
+\clearpageauthor
 \newpage
 \section{Future Work and Ideas}
+\pageauthor{Claudio Knapp, Paul Zwölfer}
 Due to our limitation in time, we cannot infinitely improve our program. Therefore we sum up our future ideas on what could be implemented or improved. Of course, we only write about the things that came up to our minds, and therefore this is just a small list.
 \paragraph{Security between RPi2 and REST service}\mbox{}\\
 As we found out during the implementation process, \gls{rest} supports an encryption process. After consulting the partner company, we decided on not using the encryption on the prototype.
@@ -587,3 +592,4 @@ As shown in the Functional Testing part, the \gls{gps} data is rather inaccurate
 Compensating the inaccuracy will help to get an exact distance measurement and provide a better user experience.
 \paragraph{Optimize Http overhead}\mbox{}\\
 If there are many points on the \gls{rpi2}  and the connection is established, the connection should only be closed after sending all the Points.
+\clearpageauthor

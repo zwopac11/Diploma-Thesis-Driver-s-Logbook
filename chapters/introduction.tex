@@ -1,21 +1,17 @@
 \markboth{Introduction}{Introduction}  
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
-Being in contact with Sunlime IT Service before, we - Helena Adam, Claudio Knapp, Laura Rössl and Paul Zwölfer - got the the chance to do our diploma-thesis together with this company. As soon as everything was arranged, we had our first meeting with the CEO of Sunlime, DI Dominik Fuchshofer. He consigned us with our present work, namely with the driver’s logbook. His idea was it to disestablish the irritating noting down of where you went with the car and how much kilometers the distance had all together. After he gave and explained us the concept of the logbook, hours of hard work started where we tried to create the best out of it.\newline
+\pageauthor{Laura Rössl}
+Our project leader Helena Adam got in contact with the company Sunlime IT Services during previous internships. This is why we got the chance to work in cooperation with the company on our diploma-thesis. The \gls{ceo} of Sunlime, DI Dominik Fuchshofer, gave us actively support when necessary and was on hand for help and advice.
+He had the idea to create an electronic driver’s logbook. If you use your private car for companys purpose, you have to note down driven trips for financial reasons. Using a company car for private and business trips, until now, you also had to note down the distances you drove.
 
+One year has passed since we started working on our diploma thesis and finally we have completed. The main tasks of our project were the competitor analysis, the design of the database, the wireframing, the project management and the working prototype. The software we created runs on this prototype, collects \gls{gps} data and uploads it in our online \gls{db}. Our partner company provided the web server for the web portal and all technical components we needed. 
 
-One year has been past since we got the work and finally it has accomplished. Part of our project was the competitor analyse, the database, the wireframing, the project management and the prototype of the logbook hardware itself. All of these has been done to get an unique RPi2 prototype. Our software is running on this hardware and the collected data get saved in the from us created database. To have an overview of the process in this project, the project management was necessary. Anyway, these things are explained more in detail on the next pages. Our partner company was also not inactive. They managed everything around the data transfer, data acquisition and data design. Furthermore, they provided the web server for the portal and all technical parts we needed for the hardware prototype.\newline
-
-
-Whenever we needed help at some technical points or something else, we could ask our supervisors and employer. They were always there to clear misunderstandings and supported us at our work during this period of time. However, also with the help of useful tutorials on the internet, we reached the end product of our diploma-thesis.\newline
-
-
-Although, there were some hard times where we had struggles and sometimes a lack of knowledge in the area of GPS and other stuff, we managed to do it anyway and to reach our goal. But, it needs to be said that we had help of some incredible people. \newline
-
-
-All in all, we have learned a lot of new things. For instance, how it is like to do a work in such a range in a team, or to deal with different situations and problems. Moreover, we were able to use new technologies and learn some new technical aspects.
+With the help of our supervising teachers and our employer, and useful tutorials on the internet, we were able to create a working prototype.
+\clearpageauthor
 \newpage
 \section*{State of the Art}
+\pageauthor{Claudio Knapp}
 Until now, the company has to track the driven distance by hand. They note down different parameters in an EXCEL sheet. There is a separate sheet for each month of the year. These parameters include the date, tachometer kilometers at the beginning and the end of the trip, how much kilometers are driven for the company or private use, the route they took, and the reason for driving.
 
 This method is very time consuming and has to be done for every company related trip. Non company related trips must be excluded.
@@ -31,10 +27,11 @@ Reading and writing data simultaneously is possible due to the use of a blocking
 Successfully uploaded points are removed from the list and therefore from the synchronized backup file.
 
 This runs through as long as the \gls{rpi2} is supplied with power.
-
+\clearpageauthor
 
 \newpage
 \section*{Role of the Company}
+\pageauthor{Helena Adam}
 In this part of our diploma-thesis it is listed up what our employer, Sunlime IT Services, contributes to the work of the electronic logbook. Following areas are included:
 \begin{itemize}
 \item Hardware
@@ -54,8 +51,10 @@ Thirdly, the company has to choose a “Mobile-first” approach to react to the
 Then, the logbook should also work on smartphones. Therefore, Adobe PhoneGap will help to transact the program. The mobile application has to be designed one time only.
 
 Finally, the company is responsible for the security on the servers. It should not be possible to have access on a server as third person. Passwords are only allowed to get saved encrypted.
+\clearpageauthor
 \newpage
 \section*{Goals}
+\pageauthor{Helena Adam, Claudio Knapp, Laura Rössl, Paul Zwölfer}
 The goal of our diploma-thesis is to build a working hardware prototype. This is recording the driven \gls{gps} data. A \gls{rpi2} with a \gls{gps} module has to be placed in a car. The prototype tracks \gls{gps} data and transfers it to the \gls{rest} service. \gls{rest} is responsible for uploading data into the \gls{db}. 
 
 In case there is no internet connection, we store the \gls{gps} data locally. The program structure is described in our Software description section.
@@ -67,3 +66,4 @@ The wireframing is the Front-End representation of our diploma thesis. It displa
 To get a unique product, the market needs to get analysed. Here, the competitors should get detected and compared in different attributes. For instance: costs, supported platforms, \gls{gps}, hardware etc. With this information, we create a diploma-thesis that differs from other products. Furthermore, other intended uses of the hardware prototype should get noted down.
 
 Last but not least, the project management of the working packets has to be defined appropriate and documented.
+\clearpageauthor
