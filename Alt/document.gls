@@ -50,6 +50,7 @@
 		\setentrycounter[]{page}\glsnumberformat{98}}}%
 \glossentry{gps}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{2}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{4}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{13}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{15\delimN 16}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{25}\delimN 
@@ -174,6 +175,7 @@
 		\setentrycounter[]{page}\glsnumberformat{48}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{63}}}%
 \glossentry{ups}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{4}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{48}}}%
 \glossentry{url}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{68}\delimN 
