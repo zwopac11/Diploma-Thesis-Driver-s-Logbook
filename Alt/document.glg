@@ -1,7 +1,13 @@
 This is makeindex, version 2.15 [MiKTeX 2.9 64-bit] (kpathsea + Thai support).
 Scanning style file ./document.ist.............................done (29 attributes redefined, 0 ignored).
+<<<<<<< HEAD
 Scanning input file document.glo....done (280 entries accepted, 0 rejected).
 Sorting entries.....done (2392 comparisons).
 Generating output file document.gls....done (193 lines written, 0 warnings).
+=======
+Scanning input file document.glo....done (283 entries accepted, 0 rejected).
+Sorting entries.....done (2765 comparisons).
+Generating output file document.gls....done (196 lines written, 0 warnings).
+>>>>>>> 998a245ca739060822d17a73d214138453109507
 Output written in document.gls.
 Transcript written in document.glg.
