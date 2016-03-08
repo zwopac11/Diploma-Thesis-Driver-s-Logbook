@@ -10,7 +10,7 @@ We only used the \gls{gps} antenna for testing. Our problem was that it took rea
 The \gls{umts} stick is necessary for transmitting the data to the \gls{db}.\newline
 \includegraphics[width=0.48\textwidth]{bilder/Medion_3}
 \subsection{UPS}
-If the engine of the car is switched off, the power of the \gls{rpi2} is cut. When the \gls{rpi2} gets power from the engine again, it has to do a system check and repair all files. Our final product will use an \gls{ups}. This \gls{ups} supplies our \gls{rpi2} with power even if the engine of the car is turned off. Due to that, there is no longer a problem if with losing tracked data.\newline
+If the engine of the car is switched off, the power supply of the \gls{rpi2} is interrupted. When the \gls{rpi2} gets power from the engine again, it has to do a system check and repair all files. Our final product will use an \gls{ups}. This \gls{ups} supplies our \gls{rpi2} with power even if the engine of the car is turned off. Due to that, there is no longer a problem if with losing tracked data.\newline
 \includegraphics[width=0.48\textwidth]{bilder/USV}
 \newpage
 \subsection{OS}
@@ -38,12 +38,12 @@ Now it looked like this:
 /dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 
 elevator=deadline rootwait
 \end{minted}
-The \gls{rpi2} sends all terminal output over the external serial. To disable this behaviour, we had to edit the the /etc/inittab file. We did this with the 
+The \gls{rpi2} sends all terminal output over the external serial. To disable this behaviour, we had to edit the /etc/inittab file. We did this with the 
 \begin{minted}{python}
 	sudo nano /etc/inittab
 \end{minted}
 command.\newline
-There we had to comment out following line:
+There we had to comment out the following line:
 \begin{minted}{python}
 #Spawn a getty on Raspberry Pi serial line
 T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100
