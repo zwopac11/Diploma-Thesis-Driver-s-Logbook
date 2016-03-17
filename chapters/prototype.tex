@@ -147,17 +147,17 @@ To get a GPX file, we used:
 	gpsbabel -i nmea -f test3.nmea -o gpx -F test3.gpx
 \end{minted}
 \paragraph{Program} \mbox{}\\
-After applied these commands, we started programming. We all know the programming language JAVA the best, so we decided to use it for our software.  
+After we applied these commands, we started programming. We all know the programming language JAVA the best, so we decided to use it for our software.  
 
 We looked for an \gls{api} for JAVA and found one and a small test program with it. \newline
-But we needed JAVA on the \gls{rpi2} to run a JAVA program. We wanted to use JAVA 8, but there was no real JAVA 8 \gls{jdk} for the \gls{rpi2}, so we had to use JAVA 7. We installt it with the following command:
+But we needed JAVA on the \gls{rpi2} to run a JAVA program. We wanted to use JAVA 8, but there was no real JAVA 8 \gls{jdk} for the \gls{rpi2}, so we had to use JAVA 7. We installed it with the following command:
 \begin{minted}{python}
 	sudo apt-get install oracle-java7-jdk
 \end{minted}
 You can read later everything about the program.
 
 \paragraph{Auto boot} \mbox{}\\
-While developing we started our program mostly from our own notebooks, but although we wanted it to start automatically after booting for further use. For the final product everything has to start after booting anyway. So we edited the /etc/rc.local file with the 
+While developing we started our program mostly from our own notebooks, but in the final product we wanted it to start automatically after booting for further use. For the final product everything has to start after booting anyway. So we edited the /etc/rc.local file with the 
 \begin{minted}{python}
 	sudo nano /etc/rc.local
 \end{minted} 
@@ -182,7 +182,7 @@ To make the script executable we had to use the following command:
 \end{minted}
 \paragraph{Problems} \mbox{}\\
 Here we are going to explain some appeared problems we did not mention before.\newline
-Since we had a \gls{wlan} stick, we wanted the \gls{rpi2} to be connected with a Router. We found out, that the /etc/network/interfaces file must be edited. This was be done with the
+Since we had a \gls{wlan} stick, we wanted the \gls{rpi2} to be connected with a Router. We found out, that the /etc/network/interfaces file must be edited. This was done with the
 \begin{minted}{python}
 	sudo nano /etc/network/interfaces 
 \end{minted}
@@ -217,11 +217,11 @@ Then we changed the \gls{wlan} interface.
 This worked out quite well, but if the \gls{rpi2} started and there was no \gls{wlan}, the \gls{rpi2} did not accept \gls{lan} too.
 \newpage
 \subsubsection{RASPBIAN JESSIE LITE}
-Jessie Lite is a command line \gls{os}. Our final product will run on this \gls{os}, because its starting much faster than Raspbian Wheezy. Additionally, Raspbian Wheezy is no longer  updated since 2015 and isn't able to be downloaded from the official site since February 2016.
+Jessie Lite is a command line \gls{os}. Our final product will run on this \gls{os}, because it's starting much faster than Raspbian Wheezy. Additionally, Raspbian Wheezy is no longer updated since 2015 and isn't able to be downloaded from the official site since February 2016.
 \paragraph{Getting started} \mbox{}\\
-At the beginning we downloaded the Raspbian Jessie Lite image and wrote the .img file on the microSD Card. There was the first Problem. The old Raspbian Wheezy image set the partition size to the maximum while booting. With Jessie Lite we had to do that on our own. 
+At the beginning we downloaded the Raspbian Jessie Lite image and wrote the .img file on the microSD Card. There was the first problem. The old Raspbian Wheezy image set the partition size to the maximum while booting. With Jessie Lite we had to do that on our own. 
 
-The next problem was that the ethernet interfaces \gls{ip} was set to manual. Wheezy had set it to auto. So, if we want to have internet access from the beginning, we had to edit the interface file (/etc/network/interfaces) before booting the \gls{rpi2}. Since we did it after the boot too, we are going to describe how to do that later and there you can also see what we changed in this file.
+The next problem was that the ethernet interfaces \gls{ip} was set to manual. Wheezy had set it to auto. So, if we want to have internet access from the beginning, we had to edit the interface file (/etc/network/interfaces) before booting the \gls{rpi2}. Since we did it after the boot, too, we are going to describe how to do that later and there you can also see what we changed in this file.
 
 The next step was to edit the boot file(/boot/cmdline.txt). When this was carried out, the \gls{gpsd} received data from the pins. We changed the same at the ethernet interface later. In this file was no difference when we did it. 
 \newline \newline
@@ -249,8 +249,8 @@ In this file there is a line iface eth0 inet manual and instead of this line we 
 	allow-hotplug eth0
 	iface eth0 inet auto
 \end{minted}
-Then we rebooted the \gls{rpi2}and accessed it over the \gls{lan}. \newline
-Now, if we had not done it before, we edited the boot file(/boot/cmdline.txt) with the following command:
+Then we rebooted the \gls{rpi2} and accessed it over the \gls{lan}. \newline
+If we had not done it before, we would have edited the boot file(/boot/cmdline.txt) with the following command:
 \begin{minted}{python}
 	sudo nano /boot/cmdline.txt
 \end{minted}
@@ -327,7 +327,7 @@ command. To extract it, we used the
 command.\newline
 
 \paragraph{Autostart(as Daemon)} \mbox{}\\
-We created a gps\_rest.service script and put into a folder near our program called systemd. Our script looks like this:
+We created a gps\_rest.service script and put it into a folder near our program called systemd. Our script looks like this:
 \begin{minted}{python}
 	[Unit]
 	Description=GPS Rest Daemon PaClLaHell
