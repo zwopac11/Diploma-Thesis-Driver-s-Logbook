@@ -2,27 +2,31 @@
 \section{RPi2 Hardware}
 \pageauthor{Paul Zwölfer}
 \subsection{GPS Module}
-The \gls{gps} module had to be soldered to the \gls{gpio} pins. At the beginning we did not want to do that, but without doing that the module did not really connect to the pins so we had to do it.\newline
+The \gls{gps} module had to be soldered to the \gls{gpio} pins. We didn't trust our soldering skills and tried to avoid damage to the module. But it turned out that we needed a maximum of reliability for the connection and decided to solder A to B.\newline
 \includegraphics[width=0.48\textwidth]{bilder/GPS}
 \subsection{GPS Antenna}
-We only used the \gls{gps} antenna for testing. Our problem was that it took really long to get a \gls{gps} signal every time we changed the location. With the antenna it worked much quicker. In the final product there won't be an antenna included .\newline 
+We only used the \gls{gps} antenna for testing. Our problem was that it took really long to get a \gls{gps} signal every time we changed the location. With the antenna it worked much quicker. In the final product an antenna would not be necessary because the gps board remembers the last position and a position update is faster by orders of magnitude.\newline 
 \includegraphics[width=0.48\textwidth]{bilder/Antenna}
 \subsection{UMTS Stick}
 The \gls{umts} stick is necessary for transmitting the data to the \gls{db}.\newline
 \includegraphics[width=0.48\textwidth]{bilder/Medion_3}
 \subsection{UPS}
-If the engine of the car is switched off, the power supply of the \gls{rpi2} is interrupted. When the \gls{rpi2} gets power from the engine again, it has to do a system check and repair all files. Our final product will use an \gls{ups}. This \gls{ups} supplies our \gls{rpi2} with power even if the engine of the car is turned off. Due to that, there is no longer a problem if with losing tracked data.\newline
+If the engine of the car is switched off, the power supply of the \gls{rpi2} is interrupted. When the \gls{rpi2} gets power from the engine again, it has to do a system check and repair all files. Our final product will use an \gls{ups}. This \gls{ups} supplies our \gls{rpi2} with power even if the engine of the car is turned off. This eliminates the problem of data loss.\newline
 \includegraphics[width=0.48\textwidth]{bilder/USV}
 \newpage
 \subsection{OS}
 \subsubsection{Raspbian Wheezy}
-When we started our diploma-thesis the most common operation system was and still is Raspbian Wheezy. At the beginning we downloaded the image and wrote the .img file on the microSD Card. You always have to connect the \gls{rpi2} to a screen to start Raspbian Wheezy. There you have to configure things like the keyboard layout. You can also do that later with the sudo raspi-config command. After that you have to reboot the \gls{rpi2}.
+When we started our diploma thesis the most common operation system was and still is Raspbian Wheezy. At the beginning we downloaded the image and wrote the .img file on the microSD Card. You always have to connect the \gls{rpi2} to a screen to start Raspbian Wheezy. There you have to configure things like the keyboard layout. You can also do that later with the sudo raspi-config command. After that you have to reboot the \gls{rpi2}.
 Since we wanted to have a remote connection, we installed a \gls{tvnc} Server on the \gls{rpi2}. For this, we used the  
 \begin{minted}{python}
 	sudo apt-get install tightvncserver
 \end{minted}
 command.\newline
-To connect the \gls{rpi2} via a \gls{tvnc} Client, we had to start the server with the tightvncserver command. Then the Server started on the Port 5901. For the connection establishment, we had to write the \gls{ip} and the Port 5901 into the \gls{tvnc} Client. After that, we started to configure everything for the use of the \gls{gps} module.
+To connect the \gls{rpi2} via a \gls{tvnc} Client, we had to start the server with the 
+\begin{minted}{python}
+	tightvncserver
+\end{minted}
+command. Then the Server started on the Port 5901. For the connection establishment, we had to write the \gls{ip} and the Port 5901 into the \gls{tvnc} Client. After that, we started to configure everything for the use of the \gls{gps} module.
 \paragraph{GPS} \mbox{}\\
 First we had to configure the communication between the \gls{rpi2} and the \gls{uart} pins on it. These \gls{uart} pins are \gls{gpio} 14 and 15.\newline
 To stop the sending of the debug information, we had to edit the following file /boot/cmdline.txt with the 
@@ -226,10 +230,12 @@ Here we had to remove
 	console=ttyAMA0,115200
 \end{minted}
 Then it looked like this: 
-\begin{minted}{python}
-	dwc\_otg.lpm\_enable=0 console=tty1 root=/dev/mmcblk0p2 
-	rootfstype=ext4 elevator=\$ 
-\end{minted}
+\begin{quote}
+\begin{verbatim}
+	dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 
+	rootfstype=ext4 elevator=$
+\end{verbatim}
+\end{quote}
 After these applied changes we inserted the microSD Card into the \gls{rpi2} and plugged it in.
 \paragraph{GPS Configuration} \mbox{}\\
 If we would not configure the ethernet interfaces \gls{ip} to manual, we have to connect the \gls{rpi2} to a screen. Then we edited the interface file(/etc/network/interfaces). This can be done with the 
@@ -465,7 +471,7 @@ When pon/poff worked, we had to configure the /etc/network/interfaces and here w
 \clearpageauthor
 \newpage
 \section{Software Description}
-\pageauthor{Laura Rössl, Paul Zwölfer}
+\pageauthor{Laura Rössl}
 The software of our \gls{rpi2} consists of two threads and a blocking FileObjectQueue. We get the \gls{gps} data from the \gls{api} and upload it via \gls{rest} in the \gls{db}. 
 \subsection{Functions}
 First of all a logging property file and a gps property file are loaded. The logging property file contains logging information like the saving location and the maximum number of logging files. The gps property file contains the raspberry id, the server \gls{url} and the gps module \gls{ip}.
@@ -485,7 +491,9 @@ This part of our software is responsible for the upload into the database. The \
 \begin{center}
 \includegraphics[width=1\textwidth]{bilder/SoftwareDiagram2}
 \end{center} 
+\clearpageauthor
 \section{Code Structure}
+\pageauthor{Paul Zwölfer}
 \subsection{Classes}
 \subsubsection{GPS.java}
 \paragraph{Constructor}\mbox{}\\
