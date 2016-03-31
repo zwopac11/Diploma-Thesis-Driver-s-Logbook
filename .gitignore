@@ -28,9 +28,5 @@
 *.tps 
 *blx.bib 
 *.run.xml
-<<<<<<< HEAD
-*.bcf
-=======
 *.bcf
 Alt/
->>>>>>> c4b0adb23ea53f88a3e5793ea9c985135ecd805b
