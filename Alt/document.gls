@@ -162,6 +162,8 @@
 		\setentrycounter[]{page}\glsnumberformat{69}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{77\delimN 78}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{81\delimN 82}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{89}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{91}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{97\delimR 101}}}\glsgroupskip
 \glsgroupheading{S}\relax \glsresetentrylist %
 \glossentry{sql}{\glossaryentrynumbers{\relax 

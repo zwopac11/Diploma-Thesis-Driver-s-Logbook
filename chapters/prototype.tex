@@ -5,7 +5,7 @@
 The \gls{gps} module had to be soldered to the \gls{gpio} pins. We didn't trust our soldering skills and tried to avoid damage to the module. But it turned out that we needed a maximum of reliability for the connection and decided to solder A to B.\newline
 \includegraphics[width=0.48\textwidth]{bilder/GPS}
 \subsection{GPS Antenna}
-We only used the \gls{gps} antenna for testing. Our problem was that it took really long to get a \gls{gps} signal every time we changed the location. With the antenna it worked much quicker. In the final product an antenna would not be necessary because the gps board remembers the last position and a position update is faster by orders of magnitude.\newline 
+We only used the internal \gls{gps} antenna for testing. Our problem was that it took really long to get a \gls{gps} signal every time we changed the location. With the external antenna it worked much quicker. In the final product an external antenna would not be necessary because the gps board remembers the last position and a position update is faster by orders of magnitude.\newline 
 \includegraphics[width=0.48\textwidth]{bilder/Antenna}
 \subsection{UMTS Stick}
 The \gls{umts} stick is necessary for transmitting the data to the \gls{db}.\newline
@@ -26,7 +26,7 @@ To connect the \gls{rpi2} via a \gls{tvnc} Client, we had to start the server wi
 \begin{minted}{python}
 	tightvncserver
 \end{minted}
-command. Then the Server started on the Port 5901. For the connection establishment, we had to write the \gls{ip} and the Port 5901 into the \gls{tvnc} Client. After that, we started to configure everything for the use of the \gls{gps} module.
+command. Then the Server started on the Port 5901. For the connection establishment, we had to write the \gls{ip} address and the Port 5901 into the \gls{tvnc} Client. After that, we started to configure everything for the use of the \gls{gps} module.
 \paragraph{GPS} \mbox{}\\
 First we had to configure the communication between the \gls{rpi2} and the \gls{uart} pins on it. These \gls{uart} pins are \gls{gpio} 14 and 15.\newline
 To stop the sending of the debug information, we had to edit the following file /boot/cmdline.txt with the 
@@ -67,7 +67,7 @@ and the
 \begin{minted}{python}
 	sudo apt-get dist-upgrade
 \end{minted}
-command. Then we had to restart the \gls{rpi2}. We waited, but the \gls{rpi2} did not boot. So to find out what's going on, we connected the \gls{rpi2} to a screen to look at the output. It showed us something like that all CPUs stopped and at the end there was a line that looked like this:
+command. Then we had to restart the \gls{rpi2}. We waited, but the \gls{rpi2} did not boot. So to find out what's going on, we connected the \gls{rpi2} to a screen and looked at the output. It showed us something like that all CPU stopped and at the end there was a line that looked like this:
 \begin{minted}{python}
 	---[ end Kernel panic - not syncing: VFS: Unable to mount root 
 	   fs on unknown-block(0,0)
@@ -125,7 +125,7 @@ and at last the
 \begin{minted}{python}
 	sudo gpsmon
 \end{minted}
-command to see following informations: \newline
+command to see following information: \newline
 \includegraphics[scale=0.7]{bilder/scr3}
 \newline
 Then we wanted to save the \gls{gps} Data on the \gls{rpi2}. We did this with the 
@@ -181,8 +181,8 @@ To make the script executable we had to use the following command:
 	chmod +x autostart.sh
 \end{minted}
 \paragraph{Problems} \mbox{}\\
-Here we are going to explain some appeared problems we did not mention before.\newline
-Since we had a \gls{wlan} stick, we wanted the \gls{rpi2} to be connected with a Router. We found out, that the /etc/network/interfaces file must be edited. This was done with the
+Here we are going to explain some problems which appeared and did not mention before.\newline
+Since we had a \gls{wlan} stick, we wanted the \gls{rpi2} to be connected with a router. We found out, that the /etc/network/interfaces file must be edited. This was done with the
 \begin{minted}{python}
 	sudo nano /etc/network/interfaces 
 \end{minted}
@@ -236,7 +236,7 @@ Then it looked like this:
 	rootfstype=ext4 elevator=$
 \end{verbatim}
 \end{quote}
-After these applied changes we inserted the microSD Card into the \gls{rpi2} and plugged it in.
+After these applied changes, we inserted the microSD Card into the \gls{rpi2} and plugged it in.
 \paragraph{GPS Configuration} \mbox{}\\
 If we would not configure the ethernet interfaces \gls{ip} to manual, we have to connect the \gls{rpi2} to a screen. Then we edited the interface file(/etc/network/interfaces). This can be done with the 
 \begin{minted}{python}
@@ -250,7 +250,7 @@ In this file there is a line iface eth0 inet manual and instead of this line we 
 	iface eth0 inet auto
 \end{minted}
 Then we rebooted the \gls{rpi2} and accessed it over the \gls{lan}. \newline
-If we had not done it before, we would have edited the boot file(/boot/cmdline.txt) with the following command:
+If we had not done it before, we would have to edit the boot file(/boot/cmdline.txt) with the following command:
 \begin{minted}{python}
 	sudo nano /boot/cmdline.txt
 \end{minted}
@@ -497,7 +497,7 @@ This part of our software is responsible for the upload into the database. The \
 \subsection{Classes}
 \subsubsection{GPS.java}
 \paragraph{Constructor}\mbox{}\\
-In the GPS.java class, the gpsModuleAddress variable is initialized and gets it is value from the GPSConfiguration.java class.
+In the GPS.java class, the gpsModuleAddress variable is initialized and gets its value from the GPSConfiguration.java class.
 \paragraph{startGpsdClient}\mbox{}\\
 In the startGpsdClient method, the GPS API is initialized and the validate method from the BL.java class is called every time we get data from the GPS API.
 \subsubsection{BL.java}
@@ -505,7 +505,7 @@ In the startGpsdClient method, the GPS API is initialized and the validate metho
 In this class the FileObjectQueue is created and initialized by the save.jPoint file and the GsonConverter.java class. 
 Then a new track is created and at last the SaveDataThread object is initialized and started.
 \paragraph{Validate}\mbox{}\\
-Checks if the data from the GPS API is a Number if not it will be set to 0 except the latitude and the longitude. If they are \gls{nan} it will do nothing. 
+Checks if the data from the GPS API is a number. If not it will be set to 0 except the latitude and the longitude. If they are \gls{nan} it will do nothing. 
 Then it adds the data from the GPS API to the FileObjectQueue.
 \paragraph{ProcessData}\mbox{}\\
 This method peeks max 50 and min 15 points from the FileObjectQueue and puts them into a JContainer. Then it sends these points to the DataManager.java class to upload them via the uploadContainer method.
@@ -517,7 +517,7 @@ This override method calls the ProcessData method and then waits 1 second.
 \paragraph{Constructor}\mbox{}\\
 Gets the server \gls{url} and puts it on the urlString variable.
 \paragraph{UploadContainer}\mbox{}\\
-Uploads the JContainer it got, to the Server via \gls{rest} 
+Uploads the JContainer it got to the Server via \gls{rest} .
 \subsubsection{JContainer.java}
 This is a beans class that contains attributes, getter and setter methods for the respective attribute and a toString method of the JContainer.
 \subsubsection{JPoint.java}
@@ -527,7 +527,7 @@ At the beginning this class loads the logging properties.
 \paragraph{InitConfiguration}\mbox{}\\
 Reads the properties for the program from a file and sets these values on the specified variables. If a value is not in the file, it sets a default value. And at the end it closes the file.
 \subsubsection{GsonConverter.java}
-This class is a converter class that has implemented a FileObjectQueue Converter. In the method from, the bytes from the file are converted, so that they can be saved on the FileObjectQueue. In the toStream method, it is the other way round, so the FileObjectQueue is saved on a file.
+This class is a converter class that has implemented a FileObjectQueue Converter. In the method, the bytes from the file are converted, so that they can be saved on the FileObjectQueue. In the toStream method, it is the other way round, so the FileObjectQueue is saved on a file.
 \subsection{Class Diagram}
 \begin{center}
 \includegraphics[width=1\textwidth]{bilder/GPS_REST_UML_Diagram}
@@ -542,9 +542,9 @@ When the engine stopped while saving data offline, we had a loss of points, beca
 \section{Functional Testing}
 To ensure functionality of the hardware prototype and the software, we had to do several tests. They reach from logical problems to practical testing on the road.
 \subsection{Database Connection Error}
-While developing our software, the error handling when loosing database connection was a very important issue. We had to think about different solutions for different code structure because we changed the database connection type. 
+While developing our software, the error handling when loosing database connection was a very important issue. We had to think about different solutions for different code structure because we changed the database connection type several times. 
 \newline \newline
-We decided on the connection type called \gls{rest}. When using the connection that relies on a working connection, there had to be a backup plan if exactly this connection is not working anymore.
+We decided on the connection type called \gls{rest}. When using a technology that relies heavily on a working internet connection, there had to be a backup plan if exactly this connection is not working anymore.
 \newline \newline
 When does an connection error occur:
 \begin{itemize}
@@ -555,7 +555,7 @@ We decided on saving points, that cannot be uploaded, into a \gls{json} (save.jP
 \newline \newline
 The same concept is used when the database is offline or not working properly. 
 \subsection{Inaccuracy of the GPS Coordinates}
-After the first tests, where we tried to get \gls{gps} signal, we noticed the inaccuracy of the signal. This inaccuracy gets influenced by several factors. Therefore we had to find out how precise our \gls{gps} coordinates are and how much of an imprecision (part of the \gls{gps} data we get from our module) there is. 
+After the first tests, where we tried to get \gls{gps} signal, we noticed a slight inaccuracy of the signal. This inaccuracy gets influenced by several factors. Therefore we had to find out how precise our \gls{gps} coordinates are and how much of an imprecision (part of the \gls{gps} data we get from our module) there is. 
 \newline \newline
 We evaluated driven tracks and measured how much distance there is between the actual location and the \gls{gps} coordinates received. This difference was about 5 metres, so no problem at all. 
 \newline \newline
