@@ -285,16 +285,19 @@ Some other changes we had to apply on the Jessie Lite image, were editing the \g
 \end{minted}
 Below you can see the whole file with our changes. 
 \begin{minted}{python}
-	# Default settings for the gpsd init script and the hotplug wrapper.
+	# Default settings for the gpsd init script and the 
+	hotplug wrapper.
 
 	# Start the gpsd daemon automatically at boot time
 	START_DAEMON="true"
 
-	# Use USB hotplugging to add new USB devices automatically to the daemon
+	# Use USB hotplugging to add new USB devices 
+	automatically to the daemon
 	USBAUTO="false"
 
 	# Devices gpsd should collect to at boot time.
-	# They need to be read/writeable, either by user gpsd or the group dialout.
+	# They need to be read/writeable, either by user gpsd 
+	or the group dialout.
 	DEVICES="/dev/ttyAMA0"
 
 	# Other options you want to pass to gpsd
