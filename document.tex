@@ -73,25 +73,96 @@
 \include{chapters/glossary}
 
 \begin{document}
-\titlehead{\begin{minipage}[hbt]{5cm}
+\begin{titlepage}
+\setlength{\footheight}{1px}
+\begin{minipage}[hbt]{4cm}
 \centering
-\includegraphics[width=5cm]{bilder/htblaKaindorf.pdf}
+\includegraphics[width=4cm]{bilder/htblaKaindorf.pdf}
 \end{minipage}
 \hfill
-\begin{minipage}[hbt]{5cm}
+\begin{minipage}[hbt]{4cm}
 \centering
 \vspace{25px}
-\includegraphics[width=5cm]{bilder/informatikLogo}
-\end{minipage}}
-\title{Driver's Logbook}
-\author{Helena Adam, Claudio Knapp, Laura Rössl, Paul Zwölfer}
-\date{\today}
-\includegraphics[width=5cm]{bilder/logo_final2}
+\includegraphics[width=4cm]{bilder/informatikLogo}
+\end{minipage}
+\newline
+\newline
+\newline
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE HTBLA Kaindorf}\\[0.8cm] % Name of your university/college
+\textsc{\Large Diploma - Thesis}\\[0.5cm] % Major heading such as course name
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.8cm]
+{ \huge \bfseries Driver's Logbook}\\[0.3cm] % Title of your document
+\HRule \\[0.8cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Helena \textsc{Adam}, Claudio \textsc{Knapp} Laura \textsc{Rössl}, Paul \textsc{Zwölfer} % Your name
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Customer:} \\ Sunlime IT Services GmbH % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[1.4cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[1.2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}[hbt]{3.5cm}
+\centering
+%\includegraphics[width=3.5cm]{bilder/logo_final2}
+\end{minipage}
+\hfill
+\begin{minipage}[hbt]{6cm}
+\centering
+\vspace{25px}
+\includegraphics[width=6cm]{bilder/logo_final2}
+\end{minipage}
+ % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+
+    
+
+    
+\end{titlepage}
 
 
 
 
-\include{chapters/headerpage}
+
+
+%\include{chapters/headerpage}
 \include{chapters/abstract}
 \include{chapters/acknowledgements}
 \include{chapters/projectmembers}
