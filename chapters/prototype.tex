@@ -146,7 +146,7 @@ To get a GPX file, we used:
 \begin{minted}{python}
 	gpsbabel -i nmea -f test3.nmea -o gpx -F test3.gpx
 \end{minted}
-\paragraph{Program} \mbox{}\\
+\paragraph{Software development} \mbox{}\\
 After we applied these commands, we started programming. We all know the programming language JAVA the best, so we decided to use it for our software.  
 
 We looked for an \gls{api} for JAVA and found one and a small test program with it. \newline
@@ -285,16 +285,19 @@ Some other changes we had to apply on the Jessie Lite image, were editing the \g
 \end{minted}
 Below you can see the whole file with our changes. 
 \begin{minted}{python}
-	# Default settings for the gpsd init script and the hotplug wrapper.
+	# Default settings for the gpsd init script and the 
+	hotplug wrapper.
 
 	# Start the gpsd daemon automatically at boot time
 	START_DAEMON="true"
 
-	# Use USB hotplugging to add new USB devices automatically to the daemon
+	# Use USB hotplugging to add new USB devices 
+	automatically to the daemon
 	USBAUTO="false"
 
 	# Devices gpsd should collect to at boot time.
-	# They need to be read/writeable, either by user gpsd or the group dialout.
+	# They need to be read/writeable, either by user gpsd 
+	or the group dialout.
 	DEVICES="/dev/ttyAMA0"
 
 	# Other options you want to pass to gpsd
@@ -487,7 +490,9 @@ When the GPS API measures \gls{gps} data, the API Thread gets it from the \gls{a
 \includegraphics[width=1\textwidth]{bilder/SoftwareDiagram1}
 \end{center} 
 \subsection{PHP (REST)}
-This part of our software is responsible for the upload into the database. The \gls{rest} server gets the data formatted as \gls{json}.
+This part of our software is responsible for the upload into the database. The \gls{rest} server gets the data formatted as \gls{json}.\\
+\paragraph{lines of code}\mbox{}\\
+Paul Zwölfer: 119 lines
 \begin{center}
 \includegraphics[width=1\textwidth]{bilder/SoftwareDiagram2}
 \end{center} 
@@ -500,6 +505,9 @@ This part of our software is responsible for the upload into the database. The \
 In the GPS.java class, the gpsModuleAddress variable is initialized and gets its value from the GPSConfiguration.java class.
 \paragraph{startGpsdClient}\mbox{}\\
 In the startGpsdClient method, the GPS API is initialized and the validate method from the BL.java class is called every time we get data from the GPS API.
+\paragraph{lines of code}\mbox{}\\
+Laura Rössl: 50 lines \\
+Paul Zwölfer: 29 lines
 \subsubsection{BL.java}
 \paragraph{Constructor}\mbox{}\\
 In this class the FileObjectQueue is created and initialized by the save.jPoint file and the GsonConverter.java class. 
@@ -509,6 +517,8 @@ Checks if the data from the GPS API is a number. If not it will be set to 0 exce
 Then it adds the data from the GPS API to the FileObjectQueue.
 \paragraph{ProcessData}\mbox{}\\
 This method peeks max 50 and min 15 points from the FileObjectQueue and puts them into a JContainer. Then it sends these points to the DataManager.java class to upload them via the uploadContainer method.
+\paragraph{lines of code}\mbox{}\\
+Paul Zwölfer: 184 lines
 \subsubsection{SaveDataThread.java}
 This is an intern Class in the \gls{bl} class that extends Thread.
 \paragraph{Run}\mbox{}\\
@@ -517,17 +527,29 @@ This override method calls the ProcessData method and then waits 1 second.
 \paragraph{Constructor}\mbox{}\\
 Gets the server \gls{url} and puts it on the urlString variable.
 \paragraph{UploadContainer}\mbox{}\\
-Uploads the JContainer it got to the Server via \gls{rest} .
+Uploads the JContainer it got to the Server via \gls{rest}.
+\paragraph{lines of code}\mbox{}\\
+Paul Zwölfer: 73 lines
 \subsubsection{JContainer.java}
 This is a beans class that contains attributes, getter and setter methods for the respective attribute and a toString method of the JContainer.
+\paragraph{lines of code}\mbox{}\\
+Claudio Knapp: 25 lines\\
+Paul Zwölfer: 62 lines
 \subsubsection{JPoint.java}
 This is a beans class that contains attributes, getter and setter methods for the respective attribute and a toString method of the JPoint.
+\paragraph{lines of code}\mbox{}\\
+Claudio Knapp: 55 lines \\
+Paul Zwölfer: 158 lines
 \subsubsection{GPSConfiguration.java}
 At the beginning this class loads the logging properties.
 \paragraph{InitConfiguration}\mbox{}\\
 Reads the properties for the program from a file and sets these values on the specified variables. If a value is not in the file, it sets a default value. And at the end it closes the file.
+\paragraph{lines of code}\mbox{}\\
+Paul Zwölfer: 95 lines
 \subsubsection{GsonConverter.java}
 This class is a converter class that has implemented a FileObjectQueue Converter. In the method, the bytes from the file are converted, so that they can be saved on the FileObjectQueue. In the toStream method, it is the other way round, so the FileObjectQueue is saved on a file.
+\paragraph{lines of code}\mbox{}\\
+Paul Zwölfer: 53 lines
 \subsection{Class Diagram}
 \begin{center}
 \includegraphics[width=1\textwidth]{bilder/GPS_REST_UML_Diagram}
@@ -536,7 +558,7 @@ This class is a converter class that has implemented a FileObjectQueue Converter
 \section{Problems}
 \pageauthor{Claudio Knapp}
 \subsection{Uploading into Database}
-When we started with this project, we uploaded tracked data directly into the database over a standard java database connection. During our work on this project, we learned the technology hibernate in school so we reconstructed our program and used hibernate. Later our employer told us, that we should use \gls{rest} to upload data for a higher security level and fewer connections to the database and therefore less overhead. We wrote the \gls{rest} \gls{php} script on our own. 
+When we started with this project, we uploaded tracked data directly into the database over a standard java database connection. Beside working on this project, we learned the technology hibernate in school so we reconstructed our program and used hibernate. Later our employer told us, that we should use \gls{rest} to upload data for a higher security level and fewer connections to the database and therefore less overhead. Another reason why we had to use this web service technology is that it's not possible to directly access the \gls{db} from outside. We wrote the \gls{rest} \gls{php} script on our own. 
 \subsection{Offline Saving}
 When the engine stopped while saving data offline, we had a loss of points, because the whole save file we used was overwritten. So we created a copy of this file, removed the data that was already in the database and deleted the original file. Then we renamed the copy to the original file name. Nevertheless, there was still a problem. On the one hand, it was possible that no data was lost, but on the other hand everything could be lost if the power was cut off between deleting the original file and renaming the copy. This is the reason why we use Tape API now. 
 \section{Functional Testing}
