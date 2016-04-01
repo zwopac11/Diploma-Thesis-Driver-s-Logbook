@@ -16,7 +16,11 @@ If the engine of the car is switched off, the power supply of the \gls{rpi2} is 
 \newpage
 \subsection{OS}
 \subsubsection{Raspbian Wheezy}
-When we started our diploma thesis the most common operation system was and still is Raspbian Wheezy. At the beginning we downloaded the image and wrote the .img file on the microSD Card. You always have to connect the \gls{rpi2} to a screen to start Raspbian Wheezy. There you have to configure things like the keyboard layout. You can also do that later with the sudo raspi-config command. After that you have to reboot the \gls{rpi2}.
+When we started our diploma thesis the most common operation system on the \gls{rpi2} was and still is Raspbian Wheezy. At the beginning we downloaded the image and wrote the .img file on the microSD Card. You always have to connect the \gls{rpi2} to a screen to start Raspbian Wheezy. There you have to configure things like the keyboard layout. You can also do that later with the
+\begin{minted}{python}
+	sudo raspi-config
+\end{minted}
+command. After that you have to reboot the \gls{rpi2}.
 Since we wanted to have a remote connection, we installed a \gls{tvnc} Server on the \gls{rpi2}. For this, we used the  
 \begin{minted}{python}
 	sudo apt-get install tightvncserver
@@ -53,11 +57,6 @@ There we had to comment out the following line:
 #Spawn a getty on Raspberry Pi serial line
 T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100
 \end{minted}
-and after we did that, it looked like:
-\begin{minted}{python}
-#Spawn a getty on Raspberry Pi serial line
-#T0:23:respawn:/sbin/getty -L ttyAMA0 115200 vt100
-\end{minted}
 An interesting thing was, that this file did not exist on the Raspbian Jessie Lite image. There we had to change nothing.\newline
 The next step was to ensure if the Raspbian was up-to-date. At the beginning we did that with the 
 \begin{minted}{python}
@@ -90,7 +89,7 @@ and the
 \begin{minted}{python}
 	sudo apt-get install libcap-dev
 \end{minted}
-commands.\newline
+commands. These commands are for displaying the \gls{gps} data on the command line.\newline
 After that we also had to install the \gls{gpsd} with the following command:
 \begin{minted}{python}
 	sudo apt-get install gpsd gpsd-clients python-gps
