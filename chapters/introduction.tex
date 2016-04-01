@@ -18,10 +18,10 @@ This method is very time consuming and has to be done for every company related 
 \subsection*{Our functionalities}
 The \gls{rpi2} powers up when the driver starts up the cars ignition. After that, the autostart routine starts our software, including the process of collecting \gls{gps} data, saving and uploading it.
 
-When the software started up, it checks if there is some \gls{gps} data from previous tracks to be uploaded. If that is the case, this data will be read from the save.jPoint file into the queue. After that, the save thread uploads a maximum of 50 points to the \gls{rest} service. 
+When the software started up, it checks if there is some \gls{gps} data from previous tracks to be uploaded. In this case, this data will be read from the save.jPoint file into the queue. After that, the save thread uploads a maximum of 50 points to the \gls{rest} service. 
 
 
-Then the \gls{gps} data of the current track gets saved via the API thread into the queue and then synchronized with the save.jPoint file.
+Then the \gls{gps} data of the current track gets stored via the API thread into the queue and then synchronized with the save.jPoint file.
 
 Reading and writing data simultaneously is possible due to the use of a blocking queue. This special type of queue manages the access of the list so that no errors occur.\newline
 Successfully uploaded points are removed from the list and therefore from the synchronized backup file.
