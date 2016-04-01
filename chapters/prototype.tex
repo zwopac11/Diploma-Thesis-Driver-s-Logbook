@@ -3,16 +3,16 @@
 \pageauthor{Paul Zwölfer}
 \subsection{GPS Module}
 The \gls{gps} module had to be soldered to the \gls{gpio} pins. We didn't trust our soldering skills and tried to avoid damage to the module. But it turned out that we needed a maximum of reliability for the connection and decided to solder A to B.\newline
-\includegraphics[width=0.48\textwidth]{bilder/GPS}
+\includegraphics[width=0.48\textwidth]{bilder/DSC_0412}
 \subsection{GPS Antenna}
 We only used the internal \gls{gps} antenna for testing. Our problem was that it took really long to get a \gls{gps} signal every time we changed the location. With the external antenna it worked much quicker. In the final product an external antenna would not be necessary because the gps board remembers the last position and a position update is faster by orders of magnitude.\newline 
-\includegraphics[width=0.48\textwidth]{bilder/Antenna}
+\includegraphics[width=0.48\textwidth]{bilder/DSC_0419}
 \subsection{UMTS Stick}
 The \gls{umts} stick is necessary for transmitting the data to the \gls{db}.\newline
-\includegraphics[width=0.48\textwidth]{bilder/Medion_3}
+\includegraphics[width=0.48\textwidth]{bilder/DSC_0415}
 \subsection{UPS}
 If the engine of the car is switched off, the power supply of the \gls{rpi2} is interrupted. When the \gls{rpi2} gets power from the engine again, it has to do a system check and repair all files. Our final product will use an \gls{ups}. This \gls{ups} supplies our \gls{rpi2} with power even if the engine of the car is turned off. This eliminates the problem of data loss.\newline
-\includegraphics[width=0.48\textwidth]{bilder/USV}
+%\includegraphics[width=0.48\textwidth]{bilder/USV}
 \newpage
 \subsection{OS}
 \subsubsection{Raspbian Wheezy}
