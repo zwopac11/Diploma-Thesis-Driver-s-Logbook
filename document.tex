@@ -1,4 +1,4 @@
-\documentclass[a4paper,final,headinclude=true,footinclude=true, headsepline=1pt, DIV=12, open=right, twoside=true, BCOR=2cm]{scrreprt}
+\documentclass[a4paper, final, headinclude=true, footinclude=true, headsepline=1pt, plainheadsepline=true, cleardoublepage=plain, DIV=12, open=right, twoside=true, BCOR=2cm]{scrreprt}
 %bei documentclass footsepline=1pt einfügen für linie ober fußzeile
 
 \usepackage[utf8]{inputenc}
@@ -46,7 +46,7 @@
 \clearscrheadfoot
 \pagestyle{headings}
 %lo = left outer
-\lohead{\headmark}
+\ohead{\headmark}
 %für seitenzahl
 \ofoot[\pagemark]{\pagemark}
 \automark[chapter]{chapter}
