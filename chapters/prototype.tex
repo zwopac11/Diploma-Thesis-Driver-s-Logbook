@@ -7,10 +7,10 @@ The \gls{gps} module had to be soldered to the \gls{gpio} pins. We didn't trust 
 \includegraphics[width=0.48\textwidth]{bilder/DSC_0412}
 \subsection{GPS Antenna}
 We only used the internal \gls{gps} antenna for testing. Our problem was that it took really long to get a \gls{gps} signal every time we changed the location. With the external antenna it worked much quicker. In the final product an external antenna would not be necessary because the gps board remembers the last position and a position update is faster by orders of magnitude.\newline 
-\includegraphics[width=0.48\textwidth]{bilder/DSC_0419}
+\includegraphics[width=0.6\textwidth]{bilder/DSC_0419}
 \subsection{UMTS Stick}
 The \gls{umts} stick is necessary for transmitting the data to the \gls{db}.\newline
-\includegraphics[width=0.48\textwidth]{bilder/DSC_0415}
+\includegraphics[width=0.6\textwidth]{bilder/DSC_0415}
 \subsection{UPS}
 If the engine of the car is switched off, the power supply of the \gls{rpi2} is interrupted. When the \gls{rpi2} gets power from the engine again, it has to do a system check and repair all files. Our final product will use an \gls{ups}. This \gls{ups} supplies our \gls{rpi2} with power even if the engine of the car is turned off. This eliminates the problem of data loss.\newline
 %\includegraphics[width=0.48\textwidth]{bilder/USV}
@@ -112,21 +112,21 @@ There ist the
 	sudo cgps -s
 \end{minted}
 command that shows following output: \newline
-\includegraphics[scale=0.7]{bilder/scr1}
+\includegraphics[scale=0.6]{bilder/scr1}
 \newline
 then the
 \begin{minted}{python}
 	sudo xgps
 \end{minted}
 command where you can see this:\newline
-\includegraphics[scale=0.9]{bilder/scr2}
+\includegraphics[scale=0.8]{bilder/scr2}
 \newline
 and at last the 
 \begin{minted}{python}
 	sudo gpsmon
 \end{minted}
 command to see following information: \newline
-\includegraphics[scale=0.7]{bilder/scr3}
+\includegraphics[scale=0.6]{bilder/scr3}
 \newline
 Then we wanted to save the \gls{gps} Data on the \gls{rpi2}. We did this with the 
 \begin{minted}{python}
